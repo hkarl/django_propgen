@@ -1,0 +1,20 @@
+<html><body>
+<h1>Some Model </h1>
+
+ Modelname: {{ modelname }}
+
+<a href="add/"> ADD NEW </a>
+
+<ul>
+    {% for sm in somemodels %}
+    <li>{{ sm.title }} order:  {{ sm.order }} <p>
+        <a href="{% url 'somemodel-form' sm.pk %}"> EDIT </a>
+        <a href="{% url 'somemodel-up' sm.pk %}"> UP </a>
+  <a href="{% url 'somemodel-down' sm.pk %}"> DOWN </a>
+  <a href="{% url 'somemodel-versions-list' sm.pk %}"> Versions </a>
+  </p>
+    </li>
+    {% endfor %}
+</ul>
+</body></html>
+

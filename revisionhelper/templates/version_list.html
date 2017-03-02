@@ -1,0 +1,16 @@
+<html><body>
+<h1>Version list  </h1>
+
+<ul>
+  {% for v in versions %}
+  <li>
+  {{ v }}
+  {{ v.revision.comment }}
+  {{ v.revision.date_created }}
+  {{ v.revision.user }}
+  <a href="{{ v.pk }}"> Details </a>
+  </li>
+  {% endfor %}
+</ul>
+</body></html>
+

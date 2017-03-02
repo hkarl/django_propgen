@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load bootstrap3 %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block title %}
+        Test title
+        {% endblock %}
+    </title>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    {#    <script src="//code.jquery.com/jquery.min.js"></script>#}
+    {% bootstrap_javascript %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('.dropdown-toggle').dropdown();
+        });
+    </script>
+    {% bootstrap_css %}
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">EPT</a>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Proposal elements <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href=""> Textblocks</a></li>
+                    <li role="separator" class="divider"></li>
+                </ul>
+            </li>
+            <li> <a href="/admin/">Admin</a></li>
+        </ul>
+    </div>
+</nav>
+
+{% block bootstrap3_content %}
+
+
+<div class="container">
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+    {% block content %} 
+
+        <h1>sdlkfjsldfj </h1>
+        Test content
+
+    {% endblock %}
+
+  <script type="text/javascript" src="/static/markdownx/js/markdownx.js"></script>
+
+</div>
+{%  endblock %}
+
+
+{% if not 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+{% block bootstrap3_extra_script %}{% endblock %}
+
+
+</body>
+
+
+</html>

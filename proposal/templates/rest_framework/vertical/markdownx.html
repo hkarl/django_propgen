@@ -1,0 +1,32 @@
+<div class="form-group {% if field.errors %}has-error{% endif %}">
+  {% if field.label %}
+    <label {% if style.hide_label %}class="sr-only"{% endif %}>
+      {{ field.label }}
+    </label>
+  {% endif %}
+
+  <div class="markdownx">
+  
+    <textarea name="{{ field.name }}" cols="40" class="{{ field.attrs.class }}" {% if style.placeholder %}placeholder="{{ style.placeholder }}"{% endif %} {% if style.rows %}rows="{{ style.rows }}"{% endif %}
+    data-markdownx-upload-urls-path="{{ field.attrs.data_markdownx_upload_urls_path}}"
+    data-markdownx-urls-path="{{ field.attrs.data_markdownx_urls_path }}"
+     >{% if field.value %}{{ field.value }}{% endif %}
+    </textarea>
+
+  
+    {% if field.errors %}
+    {% for error in field.errors %}<span class="help-block">{{ error }}</span>{% endfor %}
+    {% endif %}
+
+    {% if field.help_text %}
+    <span class="help-block">{{ field.help_text|safe }}</span>
+    {% endif %}
+
+    {{ markdownx_editor }}
+    <p>Preview:
+    </p>
+     <div class="markdownx-preview" style="background-color:#D1D0CE"></div>
+  </div>
+
+</div>
+

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block title %}
+    Proposal editing
+{% endblock %}
+{% block content %}
+
+    <h1> Proposal editing made easy </h1>
+
+    <ul>
+        <li> Basic data </li>
+        <ul>
+            <li>
+                Configuration
+            </li>
+        </ul>
+        <li>Proposal elements </li>
+	<ul>
+	  <li> <a href="{% url 'workpackage-list' %}"> Workpackages
+	  </a> </li>
+	  
+	  <li> <a href="{% url 'deliverable-list' %}"> Deliverables
+	  </a></li> 
+	  <li> <a href="{% url 'milestone-list' %}"> Milestones </a> </li>
+	  <li> <a href="{% url 'partner-list' %}"> Partner
+	  descriptions </a>  </a> </li>
+	</ul>
+        <li> Produce files </li>
+        <ul>
+            <li> Markdown </li>
+        </ul>
+        <li> <a href="admin/"> Admin </a></li>
+    </ul>
+
+{% endblock %}
