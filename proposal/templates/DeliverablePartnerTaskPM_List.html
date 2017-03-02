@@ -17,10 +17,10 @@
 <ul>
     {% for sm in object_list %}
     <li>{{ sm }} <p>
-        <a href="{% url 'milestone-form' sm.pk %}"> EDIT </a>
-        <a href="{% url 'milestone-up' sm.pk %}"> UP </a>
-  <a href="{% url 'milestone-down' sm.pk %}"> DOWN </a>
-  <a href="{% url 'milestone-versions-list' sm.pk %}"> Versions </a>
+        <a href="{% url 'deliverablepartnertaskpm-form' sm.pk %}"> EDIT </a>
+        <a href="{% url 'deliverablepartnertaskpm-up' sm.pk %}"> UP </a>
+  <a href="{% url 'deliverablepartnertaskpm-down' sm.pk %}"> DOWN </a>
+  <a href="{% url 'deliverablepartnertaskpm-versions-list' sm.pk %}"> Versions </a>
   </p>
     </li>
     {% endfor %}

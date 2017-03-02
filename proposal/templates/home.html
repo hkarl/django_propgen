@@ -12,21 +12,47 @@
         <li> Basic data </li>
         <ul>
             <li>
-                Configuration
+                <a href="{% url 'project-form' 1 %}"> Project data </a>
+            </li>
+            <li>
+                Templates
             </li>
         </ul>
         <li>Proposal elements </li>
 	<ul>
 	  <li> <a href="{% url 'workpackage-list' %}"> Workpackages
 	  </a> </li>
-	  
+	  <li> <a href="{% url 'task-list' %}"> Tasks
+	  </a> </li>
+
 	  <li> <a href="{% url 'deliverable-list' %}"> Deliverables
-	  </a></li> 
+	  </a>
+          <ul>
+              <li>
+                  <a href="{% url 'producabletypes-list' %}"> Types of deliverables </a>
+              </li>
+              <li>
+                  <a href="{% url 'disseminationtypes-list' %}"> Dissemination options for deliverables </a>
+              </li>
+          </ul>
+      </li>
+
 	  <li> <a href="{% url 'milestone-list' %}"> Milestones </a> </li>
 	  <li> <a href="{% url 'partner-list' %}"> Partner
 	  descriptions </a>  </a> </li>
 	</ul>
-        <li> Produce files </li>
+        <li> Budget allocation
+            <ul>
+                <li>
+                    <a href="{% url 'deliverablepartnertaskpm-list' %}">
+                    Partner contributions to deliverables (per task)
+                    </a>
+                </li>
+                <li>Partner contributions to milestones (per task) </li>
+                <li>Partner contributions to tasks (in general, not tied to milestones or deliverables) </li>
+            </ul>
+        </li>
+        <li> Produce files & output  </li>
         <ul>
             <li> Markdown </li>
         </ul>
