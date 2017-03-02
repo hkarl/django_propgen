@@ -74,6 +74,21 @@ class Task(reorderhelper.models.ReorderableMixin,
     class Meta:
         ordering = ['order']
 
+
+class ProducableTypes(models.Model):
+    short = models.CharField(max_length=10)
+    long = models.CharField(max_length=200,
+                            blank=True, null=True)
+    comments = models.TextField(blank=True)
+
+
+class DisseminationTypes(models.Model):
+    short = models.CharField(max_length=10)
+    long = models.CharField(max_length=200,
+                            blank=True, null=True)
+    comments = models.TextField(blank=True)
+
+
 @reversion.register()
 class Deliverable(reorderhelper.models.ReorderableMixin,
                   models.Model):
@@ -89,8 +104,8 @@ class Deliverable(reorderhelper.models.ReorderableMixin,
         blank=True,
         related_name="secondarytasks")
 
-    type = models.CharField(max_length=10)
-    dissemination = models.CharField(max_length=10)
+    type = models.ForeignKey(ProducableTypes)
+    dissemination = models.ForeignKey(DisseminationTypes)
 
     wp = SortableForeignKey(Workpackage)
 
