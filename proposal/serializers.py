@@ -89,12 +89,12 @@ class TaskPartnerPMSerializer(CommentedSerializers):
 
 class DeliverablePartnerPMSerializer(CommentedSerializers):
     class Meta:
-        model = proposal.models.DeliverablePartnerPM
+        model = proposal.models.DeliverablePartnerTaskPM
         fields = "__all__"
 
 
 class MilestonePartnerPMSerializer(CommentedSerializers):
     class Meta:
-        model = proposal.models.MilestonePartnerPM
+        model = proposal.models.MilestonePartnerTaskPM
         fields = "__all__"
         

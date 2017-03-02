@@ -57,12 +57,12 @@ class TaskPartnerPMModelViewSet(FormModelViewSet, ReorderMixin):
 
 class DeliverablePartnerPMModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.DeliverablePartnerPMSerializer
-    model_class = proposal.models.DeliverablePartnerPM
+    model_class = proposal.models.DeliverablePartnerTaskPM
 
 
 class MilestonePartnerPMModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.MilestonePartnerPMSerializer
-    model_class = proposal.models.MilestonePartnerPM
+    model_class = proposal.models.MilestonePartnerTaskPM
     
     
     

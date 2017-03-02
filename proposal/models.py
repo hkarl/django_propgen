@@ -150,18 +150,20 @@ class TaskPartnerPM(models.Model):
                                  decimal_places=2)
 
 @reversion.register()
-class DeliverablePartnerPM(models.Model):
+class DeliverablePartnerTaskPM(models.Model):
     partner = models.ForeignKey(Partner)
     deliverable = models.ForeignKey(Deliverable)
+    task = models.ForeignKey(Task)
 
     effort = models.DecimalField(max_digits=6,
                                  decimal_places=2)
 
 
 @reversion.register()
-class MilestonePartnerPM(models.Model):
+class MilestonePartnerTaskPM(models.Model):
     partner = models.ForeignKey(Partner)
     milestone = models.ForeignKey(Milestone)
+    task = models.ForeignKey(Task)
 
     effort = models.DecimalField(max_digits=6,
                                  decimal_places=2)
