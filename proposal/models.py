@@ -72,6 +72,9 @@ class Task(reorderhelper.models.ReorderableMixin,
     wp = SortableForeignKey(Workpackage)
     lead = models.ForeignKey(Partner)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         ordering = ['order']
 
@@ -159,6 +162,8 @@ class DeliverablePartnerTaskPM(models.Model):
     effort = models.DecimalField(max_digits=6,
                                  decimal_places=2)
 
+    class Meta:
+        verbose_name = "PM per partner, per task, per deliverable"
 
 @reversion.register()
 class MilestonePartnerTaskPM(models.Model):
@@ -181,23 +186,11 @@ class Project(
                                      max_length=128)
 
     lead = models.ForeignKey(Partner,
-                                 verbose_name="Project coordinator",
-                                 )
+                             verbose_name="Project coordinator",
+                             blank=True, null=True,
+                             )
 
     duration = models.PositiveIntegerField(verbose_name="Project duration (in months)")
-
-    # make it explicit that project are singletons:
-    def save(self, *args, **kwargs):
-        self.__class__.objects.exclude(id=self.id).delete()
-        super(SingletonModel, self).save(*args, **kwargs)
-
-
-    @classmethod
-    def load(cls):
-        try:
-            return cls.objects.get()
-        except cls.DoesNotExist:
-            return cls()
 
 
 # Make sure that the Reversions ViewSet can find all the relevant models:
