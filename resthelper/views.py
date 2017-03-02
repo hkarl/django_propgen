@@ -90,8 +90,14 @@ class FormModelViewSet(reversion.views.RevisionMixin,
 
         elif request._request.method == "POST":
             print("in post")
-            obj = self.model_class()
-            serializer = self.serializer_class(obj, data=request.data)
+
+            # this was a considerable bug:
+            # obj = self.model_class()
+            # serializer = self.serializer_class(obj, data=request.data)
+            # the following is the correct code - important to let the
+            # serializer create the object; else, m2m fields are not
+            # treated correctly 
+            serializer = self.serializer_class(data=request.data)
             response_dict.update({'serializer': serializer, })
             if not serializer.is_valid():
                 return Response(response_dict,
@@ -103,6 +109,7 @@ class FormModelViewSet(reversion.views.RevisionMixin,
                 pass
             else:
                 reversion.set_comment(comment)
+
             serializer.save()
 
         url = self.get_list_url()
