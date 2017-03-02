@@ -186,6 +186,19 @@ class Project(
 
     duration = models.PositiveIntegerField(verbose_name="Project duration (in months)")
 
+    # make it explicit that project are singletons:
+    def save(self, *args, **kwargs):
+        self.__class__.objects.exclude(id=self.id).delete()
+        super(SingletonModel, self).save(*args, **kwargs)
+
+
+    @classmethod
+    def load(cls):
+        try:
+            return cls.objects.get()
+        except cls.DoesNotExist:
+            return cls()
+
 
 # Make sure that the Reversions ViewSet can find all the relevant models:
 import inspect
