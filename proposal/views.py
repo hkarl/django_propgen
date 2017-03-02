@@ -45,6 +45,19 @@ class MilestoneModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.MilestoneSerializer
     model_class = proposal.models.Milestone
 
+class ProjectModelViewSet(FormModelViewSet, ReorderMixin):
+    serializer_class = proposal.serializers.ProjectSerialier
+    model_class = proposal.models.Project
+
+
+class ProducableTypesModelViewSet(FormModelViewSet, ReorderMixin):
+    serializer_class = proposal.serializers.ProducableTypesSerializer
+    model_class = proposal.models.ProducableTypes
+
+class DisseminationTypesModelViewSet(FormModelViewSet, ReorderMixin):
+    serializer_class = proposal.serializers.DisseminationTypesSerializer
+    model_class = proposal.models.DisseminationTypes
+
 
 # not sure about these;
 # probably better incorporated into the various Task/deliverable/Milestone

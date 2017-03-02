@@ -73,6 +73,19 @@ class TaskSerializer(CommentedSerializers):
 
 
 class DeliverableSerializer(CommentedSerializers):
+
+    # def create(self, validated_data):
+    #     print("===========================\ncreate of DeliverableSerializer")
+    #     return super().create(validated_data)
+    #
+    # def update(self, instance, validated_data):
+    #     print("===========================\nupdate of DeliverableSerializer\n{}".format(instance))
+    #     return super().update(instance, validated_data)
+    #
+    # def save(self):
+    #     print("===========================\nsave of DeliverableSerializer")
+    #     return super().save()
+    #
     class Meta:
         model = proposal.models.Deliverable
         fields = "__all__"
@@ -98,3 +111,19 @@ class MilestonePartnerPMSerializer(CommentedSerializers):
         model = proposal.models.MilestonePartnerTaskPM
         fields = "__all__"
         
+class ProjectSerialier(CommentedSerializers):
+    class Meta:
+        model = proposal.models.Project
+        fields = "__all__"
+
+
+class ProducableTypesSerializer(CommentedSerializers):
+    class Meta:
+        model = proposal.models.ProducableTypes
+        fields = "__all__"
+
+
+class DisseminationTypesSerializer(CommentedSerializers):
+    class Meta:
+        model = proposal.models.DisseminationTypes
+        fields = "__all__"
