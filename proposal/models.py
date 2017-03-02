@@ -170,7 +170,7 @@ class MilestonePartnerTaskPM(models.Model):
                                  decimal_places=2)
 
 @reversion.register()
-class Project(reorderhelper.models.ReorderableMixin,
+class Project(
     models.Model):
 
     title = models.CharField(verbose_name="Project title",
