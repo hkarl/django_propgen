@@ -8,6 +8,7 @@ import reversion
 import reorderhelper.models 
 import revisionhelper.views
 
+
 @reversion.register()
 class SomeModel(reorderhelper.models.ReorderableMixin,
                     models.Model):
@@ -168,9 +169,24 @@ class MilestonePartnerTaskPM(models.Model):
     effort = models.DecimalField(max_digits=6,
                                  decimal_places=2)
 
-    
+@reversion.register()
+class Project(reorderhelper.models.ReorderableMixin,
+    models.Model):
 
-    
+    title = models.CharField(verbose_name="Project title",
+                             max_length=512,
+                             )
+
+    shortname = models.CharField(verbose_name="Project short name or acronym",
+                                     max_length=128)
+
+    lead = models.ForeignKey(Partner,
+                                 verbose_name="Project coordinator",
+                                 )
+
+    duration = models.PositiveIntegerField(verbose_name="Project duration (in months)")
+
+
 # Make sure that the Reversions ViewSet can find all the relevant models:
 import inspect
 import sys
