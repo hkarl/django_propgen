@@ -153,6 +153,14 @@ class TaskPartnerPM(models.Model):
     effort = models.DecimalField(max_digits=6,
                                  decimal_places=2)
 
+
+    def __str__(self):
+        return "{} for task {}: {}".format(
+            self.partner,
+            self.task,
+            self.effort
+        )
+
 @reversion.register()
 class DeliverablePartnerTaskPM(models.Model):
     partner = models.ForeignKey(Partner)
@@ -161,6 +169,14 @@ class DeliverablePartnerTaskPM(models.Model):
 
     effort = models.DecimalField(max_digits=6,
                                  decimal_places=2)
+
+    def __str__(self):
+        return "{} @ del. {} for task {}: {}".format(
+            self.partner,
+            self.deliverable,
+            self.task,
+            self.effort
+        )
 
     class Meta:
         verbose_name = "PM per partner, per task, per deliverable"
@@ -173,6 +189,16 @@ class MilestonePartnerTaskPM(models.Model):
 
     effort = models.DecimalField(max_digits=6,
                                  decimal_places=2)
+
+
+    def __str__(self):
+        return "{} @ MS {} for task {}: {}".format(
+            self.partner,
+            self.milestone,
+            self.task,
+            self.effort
+        )
+
 
 @reversion.register()
 class Project(
