@@ -1,1 +1,30 @@
-generic_list.html
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+
+
+{% block title %}
+    Proposal editing
+{% endblock %}
+
+{% block content %}
+
+<h1>  Add or edit {{ modelname }} </h1>
+
+<a href="add/"> ADD NEW </a>
+<p>
+
+<ul>
+    {% for sm in object_list %}
+    <li>{{ sm }} <p>
+        <a href="{% url 'milestone-form' sm.pk %}"> EDIT </a>
+        <a href="{% url 'milestone-up' sm.pk %}"> UP </a>
+  <a href="{% url 'milestone-down' sm.pk %}"> DOWN </a>
+  <a href="{% url 'milestone-versions-list' sm.pk %}"> Versions </a>
+  </p>
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

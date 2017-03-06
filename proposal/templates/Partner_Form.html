@@ -1,1 +1,16 @@
-generic_form.html
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load rest_framework %}
+
+{% block content %}
+
+<h1>Adding or editing {{ modelname }} </h1>
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {% render_form serializer template_pack='rest_framework/vertical' %}
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
+{% endblock %}
