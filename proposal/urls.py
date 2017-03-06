@@ -18,7 +18,7 @@ views = inspect.getmembers(
                          resthelper.views.FormModelViewSet) and
               c is not resthelper.views.FormModelViewSet
     )
-print(views)
+# print(views)
 
 router = routers.SimpleRouter()
 vrouters = []

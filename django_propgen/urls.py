@@ -32,7 +32,7 @@ from proposal.urls import router, vrouters
 urlpatterns += router.urls
 for vr in vrouters:
     urlpatterns += vr.urls
-pp(urlpatterns)
+# pp(urlpatterns)
 
     
 # Markdown URLs:
