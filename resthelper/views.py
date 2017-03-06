@@ -96,7 +96,7 @@ class FormModelViewSet(reversion.views.RevisionMixin,
             # serializer = self.serializer_class(obj, data=request.data)
             # the following is the correct code - important to let the
             # serializer create the object; else, m2m fields are not
-            # treated correctly 
+            # treated correctly
             serializer = self.serializer_class(data=request.data)
             response_dict.update({'serializer': serializer, })
             if not serializer.is_valid():
