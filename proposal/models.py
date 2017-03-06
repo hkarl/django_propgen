@@ -193,6 +193,50 @@ class Project(
     duration = models.PositiveIntegerField(verbose_name="Project duration (in months)")
 
 
+
+@reversion.register()
+class Setting(models.Model):
+    group = models.CharField(verbose_name="Settings group",
+                             max_length=64)
+
+    name = models.CharField(verbose_name="Settings name",
+                            max_length=128)
+
+    value = models.CharField(verbose_name="Settings value",
+                             max_length=256)
+
+    def __str__(self):
+        return "{}.{} = {}".format(self.group, self.name, self.value)
+
+
+@reversion.register()
+class Template(models.Model):
+    name = models.CharField(
+        verbose_name="Name of the produced file",
+        help_text="Include extensions like .tex or .md",
+        max_length=64)
+
+    template = models.TextField(verbose_name="Actual template text (Jinja2)",
+                                )
+
+    PRODUCE_LATEX = "LA"
+    PRODUCE_MARKDOWN = "MD"
+
+    PRODUCTION_TYPES = (
+        (PRODUCE_LATEX, "Latex",),
+        (PRODUCE_MARKDOWN, "Markdown",),
+    )
+
+    startpoint = models.BooleanField(
+        verbose_name="Start point",
+        help_text="Should this template be offered as a possible "
+        "starting point from which to produce PDFs?",
+        default=False,
+
+    )
+
+
+
 # Make sure that the Reversions ViewSet can find all the relevant models:
 import inspect
 import sys

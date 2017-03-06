@@ -127,3 +127,13 @@ class DisseminationTypesSerializer(CommentedSerializers):
     class Meta:
         model = proposal.models.DisseminationTypes
         fields = "__all__"
+
+class SettingsSerializer(CommentedSerializers):
+    class Meta:
+        model = proposal.models.Setting
+        fields = "__all__"
+
+class TemplateSerializer(CommentedSerializers):
+    class Meta:
+        model = proposal.models.Template
+        fields = "__all__"

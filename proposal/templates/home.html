@@ -15,7 +15,12 @@
                 <a href="{% url 'project-form' 1 %}"> Project data </a>
             </li>
             <li>
+                <a href="{% url 'template-list' %}">
                 Templates
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'setting-list' %}"> Settings </a>
             </li>
         </ul>
         <li>Proposal elements </li>
@@ -48,8 +53,16 @@
                     Partner contributions to deliverables (per task)
                     </a>
                 </li>
-                <li>Partner contributions to milestones (per task) </li>
-                <li>Partner contributions to tasks (in general, not tied to milestones or deliverables) </li>
+                <li>
+                    <a href="{% url 'milestonepartnertaskpm-list' %}">
+                    Partner contributions to milestones (per task)
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'taskpartnerpm-list' %}">
+                    Partner contributions to tasks (in general, not tied to milestones or deliverables)
+                    </a>
+                </li>
             </ul>
         </li>
         <li> Produce files & output  </li>

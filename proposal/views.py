@@ -77,8 +77,14 @@ class MilestonePartnerPMModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.MilestonePartnerPMSerializer
     model_class = proposal.models.MilestonePartnerTaskPM
     
-    
-    
+class SettingsModelViewSet(FormModelViewSet, ReorderMixin):
+    serializer_class = proposal.serializers.SettingsSerializer
+    model_class = proposal.models.Setting
+
+class TemplateModelViewSet(FormModelViewSet, ReorderMixin):
+    serializer_class = proposal.serializers.TemplateSerializer
+    model_class = proposal.models.Template
+
     
     
     
