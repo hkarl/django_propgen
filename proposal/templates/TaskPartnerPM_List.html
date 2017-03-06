@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+
+
+{% block title %}
+    Proposal editing
+{% endblock %}
+
+{% block content %}
+
+<h1>  Add or edit {{ modelname }} </h1>
+
+<a href="add/"> ADD NEW </a>
+<p>
+
+<ul>
+    {% for sm in object_list %}
+    <li>{{ sm }} <p>
+        <a href="{% url 'taskpartnerpm-form' sm.pk %}"> EDIT </a>
+        <a href="{% url 'taskpartnerpm-up' sm.pk %}"> UP </a>
+  <a href="{% url 'taskpartnerpm-down' sm.pk %}"> DOWN </a>
+  <a href="{% url 'taskpartnerpm-versions-list' sm.pk %}"> Versions </a>
+  </p>
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
