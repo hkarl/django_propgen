@@ -25,7 +25,7 @@ SECRET_KEY = 'nxvxu#mdg&u!08=(h_!mlw2f)%1+pt$-w(_!l=y&xef)*grppp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hk-vm.cs.uni-paderborn.de', 'hk-vm.cs.upb.de', 'localhost', '127.0.0.1']
 
 
 # Application definition
