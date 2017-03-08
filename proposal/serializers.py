@@ -142,3 +142,10 @@ class TemplateSerializer(CommentedSerializers):
     class Meta:
         model = proposal.models.Template
         fields = "__all__"
+
+
+class TextblockSerializer(CommentedSerializers):
+    textblock = MarkdownxRestField()
+    class Meta:
+        model = proposal.models.Textblock
+        fields = "__all__"

@@ -85,6 +85,9 @@ class TemplateModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.TemplateSerializer
     model_class = proposal.models.Template
 
-    
-    
+class TextblockModelViewSet(FormModelViewSet, ReorderMixin):
+    serializer_class = proposal.serializers.TextblockSerializer
+    model_class = proposal.models.Textblock
+
+
     

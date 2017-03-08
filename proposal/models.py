@@ -29,8 +29,49 @@ class SomeModel(reorderhelper.models.ReorderableMixin,
 
 
 @reversion.register()
+class Textblock(reorderhelper.models.ReorderableMixin,
+    models.Model):
+
+    name = models.CharField(
+        verbose_name="Short name of the textblock",
+        help_text="This name is used to refer to the textblock in templates",
+        max_length=64,
+    )
+
+    description = models.TextField(
+        verbose_name="Brief description",
+        help_text="Provide a brief description of this block;"
+        "leave empty if clear; does not end up in output"
+    )
+
+    filename = models.CharField(
+        verbose_name="Filename for the content of the textblock",
+        help_text="Provide a filename if you want the content of "
+        "this textblock to written to a markdown file. If empty, "
+        "no file is produced automatically; content has to be used "
+        "in a template explicitly, then.",
+        max_length=64,
+        blank=True, null=True,
+    )
+
+    textblock = MarkdownxField(
+        verbose_name="Actual text",
+        help_text="Actual text for this block, in Markdown format"
+    )
+
+    def __str__(self):
+        return "{} {}".format(
+            self.name,
+            ("({})".format(self.description[0:50])
+             if self.description else ""),
+        )
+
+
+@reversion.register()
 class Partner(reorderhelper.models.ReorderableMixin,
                   models.Model):
+
+
     partnername = models.CharField(max_length=255)
     shortname = models.CharField(max_length=80)
     description = MarkdownxField()
