@@ -234,6 +234,18 @@ class Setting(models.Model):
     def __str__(self):
         return "{}.{} = {}".format(self.group, self.name, self.value)
 
+    def get_default(group="", name=""):
+        try:
+            s = Setting.objects.filter(group__exact=group,
+                                       name__startswith=name).first()
+            return s.value
+        except:
+            from django_propgen.settings import default_settings
+            # print(default_settings[group])
+            return default_settings[group][name]
+
+        return None
+
 
 @reversion.register()
 class Template(models.Model):

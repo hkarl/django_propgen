@@ -154,3 +154,11 @@ MEDIA_URL ="/media/"
 MARKDOWNX_EDITOR_RESIZABLE = True
 MARKDOWNX_URLS_PATH = '/markdownx/markdownify/'
 MARKDOWNX_UPLOAD_URLS_PATH = '/markdownx/upload/'
+
+# default settings:
+default_settings = {
+    'dirs': {'templates': 'templates',
+             'latex': 'latex',
+             'md': 'md',
+             },
+}
