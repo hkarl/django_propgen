@@ -251,16 +251,49 @@ class Project(
                              max_length=512,
                              )
 
-    shortname = models.CharField(verbose_name="Project short name or acronym",
-                                     max_length=128)
+    shortname = models.CharField(
+        verbose_name="Project short name or acronym",
+        max_length=128)
 
-    lead = models.ForeignKey(Partner,
-                             verbose_name="Project coordinator",
-                             blank=True, null=True,
-                             )
+    lead = models.ForeignKey(
+        Partner,
+        verbose_name="Project coordinator (partner)",
+        blank=True, null=True,
+        )
 
-    duration = models.PositiveIntegerField(verbose_name="Project duration (in months)")
+    duration = models.PositiveIntegerField(
+        verbose_name="Project duration (in months)")
 
+    projecttype = models.CharField(
+        verbose_name="Project type",
+        help_text="Project type like STREP, IA, IP, ...",
+        max_length=64,
+        blank = True, null = True,
+    )
+
+    callid = models.CharField(
+        verbose_name="Call identifier",
+        help_text="EU call ID like ICT FP7-ICT-2012-8 ",
+        max_length=30,
+        blank=True, null=True,
+    )
+
+    coordinatorName = models.CharField(
+        verbose_name="Name of coordinating person",
+        max_length=128,
+        blank=True, null=True,
+    )
+
+    coordinatorEmail = models.EmailField(
+        verbose_name="Email of the coordinating person",
+        blank=True, null=True,
+    )
+
+    coordinatorPhone = models.CharField(
+        verbose_name="Phone/FAX number of coordinator",
+        max_length=128,
+        blank=True, null=True,
+    )
 
 
 @reversion.register()
