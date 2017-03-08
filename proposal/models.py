@@ -254,8 +254,15 @@ class Template(models.Model):
         help_text="Include extensions like .tex or .md",
         max_length=64)
 
-    template = models.TextField(verbose_name="Actual template text (Jinja2)",
-                                )
+    description = models.TextField(
+        verbose_name="Description",
+        help_text="Provide a brief description of what this template does"
+    )
+
+    template = models.TextField(
+        verbose_name="Actual template text",
+        help_text="Use Jinja2-style templates",
+        )
 
     PRODUCE_LATEX = "LA"
     PRODUCE_MARKDOWN = "MD"
@@ -273,7 +280,11 @@ class Template(models.Model):
 
     )
 
-
+    def __str__(self):
+        return (self.name
+                if not self.description
+                else "{} ({})".format(
+                    self.name, self.description[0:50]))
 
 # Make sure that the Reversions ViewSet can find all the relevant models:
 import inspect
