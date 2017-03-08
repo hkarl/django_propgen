@@ -54,6 +54,7 @@ class SomeModelSerializers(CommentedSerializers):
 
 
 class PartnerSerializer(CommentedSerializers):
+    description = MarkdownxFormField()
     class Meta:
         model = proposal.models.Partner
         fields = "__all__"
@@ -67,6 +68,7 @@ class WorkpackageSerializer(CommentedSerializers):
         fields = ["title", "objectives", "description"]
 
 class TaskSerializer(CommentedSerializers):
+    description = MarkdownxRestField()
     class Meta:
         model = proposal.models.Task
         fields = "__all__"
@@ -86,11 +88,14 @@ class DeliverableSerializer(CommentedSerializers):
     #     print("===========================\nsave of DeliverableSerializer")
     #     return super().save()
     #
+    description = MarkdownxRestField()
     class Meta:
         model = proposal.models.Deliverable
         fields = "__all__"
         
 class MilestoneSerializer(CommentedSerializers):
+    description = MarkdownxRestField()
+    verification = MarkdownxRestField()
     class Meta:
         model = proposal.models.Milestone
         fields = "__all__"
