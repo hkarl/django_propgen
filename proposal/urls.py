@@ -1,3 +1,5 @@
+from pprint import pprint as pp
+
 # rest-framework based routes:
 from rest_framework_nested import routers
 
@@ -41,4 +43,19 @@ for vname, vclass in views:
 
     vrouters.append(version_router)
     
-    
+# serious views
+
+# so this does not work; need to check how to make this REST:
+# router.register("execute/",
+#                 proposal.views.ExecuteTemplates.as_view(),
+#                 "execute")
+#
+# pp(router.get_urls())
+
+from django.conf.urls import url, include
+
+urlpatterns =  [
+    url(r'^execute/(?P<pk>\d+)/', proposal.views.ExecuteTemplates.as_view()),
+    url(r'^execute/', proposal.views.ExecuteTemplates.as_view()),
+    url(r'^createLatex/$', proposal.views.CreateLatex.as_view()),
+]

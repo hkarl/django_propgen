@@ -79,6 +79,8 @@ class Partner(reorderhelper.models.ReorderableMixin,
 
     PMcost = models.FloatField()
 
+    dictkey = "shortname"
+
     def __str__(self):
         return "{} ({})".format(self.partnername ,
                                 self.shortname)

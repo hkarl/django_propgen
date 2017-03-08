@@ -27,11 +27,14 @@ urlpatterns = [
 ]
 
 from proposal.urls import router, vrouters
+from proposal.urls import urlpatterns as proposal_urlpatterns
 
 # print(router.urls)
 urlpatterns += router.urls
 for vr in vrouters:
     urlpatterns += vr.urls
+
+urlpatterns += proposal_urlpatterns
 # pp(urlpatterns)
 
     

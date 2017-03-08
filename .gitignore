@@ -2,3 +2,5 @@
 *.pyo
 *.pyc
 db.sqlite3
+latex
+templates
