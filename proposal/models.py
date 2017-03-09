@@ -278,6 +278,13 @@ class Project(
         blank=True, null=True,
     )
 
+    callobjectives = models.CharField(
+        verbose_name="Call objectives",
+        help_text="Use identifiers or short names from call",
+        max_length=128,
+        blank=True, null=True,
+    )
+
     coordinatorName = models.CharField(
         verbose_name="Name of coordinating person",
         max_length=128,
