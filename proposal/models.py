@@ -314,6 +314,13 @@ class Setting(models.Model):
     value = models.CharField(verbose_name="Settings value",
                              max_length=256)
 
+    description = models.TextField(
+        verbose_name="Description of this setting",
+        help_text="Explain what this setting does, where it is used.",
+        blank=True,
+    )
+    class Meta:
+        ordering = ['group', 'name']
     def __str__(self):
         return "{}.{} = {}".format(self.group, self.name, self.value)
 
