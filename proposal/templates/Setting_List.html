@@ -12,19 +12,30 @@
 <h1>  Add or edit {{ modelname }} </h1>
 
 <a href="add/"> ADD NEW </a>
-<p>
 
-<ul>
-    {% for sm in object_list %}
-    <li>{{ sm }} <p>
-        <a href="{% url 'setting-form' sm.pk %}"> EDIT </a>
-        <a href="{% url 'setting-up' sm.pk %}"> UP </a>
-  <a href="{% url 'setting-down' sm.pk %}"> DOWN </a>
-  <a href="{% url 'setting-versions-list' sm.pk %}"> Versions </a>
-  </p>
-    </li>
+
+    {% regroup object_list by group as group_list %}
+
+    <ul>
+    {%  for g in group_list %}
+        <li>
+        {{ g.grouper }}
+        <ul>
+            {% for sm in g.list %}
+                <li>
+                    {{ sm.name }}: {{ sm.value }}
+                    <p>
+                        <a href="{% url 'setting-form' sm.pk %}"> EDIT </a>
+                        <a href="{% url 'setting-up' sm.pk %}"> UP </a>
+                        <a href="{% url 'setting-down' sm.pk %}"> DOWN </a>
+                        <a href="{% url 'setting-versions-list' sm.pk %}"> Versions </a>
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+        </li>
     {% endfor %}
-</ul>
+    </ul>
 
 
 {% endblock %}
