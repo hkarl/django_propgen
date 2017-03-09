@@ -87,6 +87,22 @@ class SettingsModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.SettingsSerializer
     model_class = proposal.models.Setting
 
+    # def get_renderer_context(self):
+    #     context = super().get_renderer_context()
+    #     context['bla'] = "ksjdfksdhf"
+    #     # print("setting view context: ", context)
+    #     return context
+    #
+    # def get_serializer_context(self):
+    #     context = super().get_serializer_context()
+    #     # groups = proposal.models.Setting.values('group').distinct()
+    #     # context['names'] = []
+    #     # for g in groups:
+    #     #     tmp = proposal.models.Setting.objects.filter(group=g)
+    #     #     context['names'].append((g, tmp,))
+    #     context['viewcontext'] = "aha!"
+    #     return context
+
 class TemplateModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.TemplateSerializer
     model_class = proposal.models.Template
@@ -104,7 +120,7 @@ class ExecuteTemplates(TemplateView):
     template_name = "execute_template.html"
 
     def execute_template(self, template, jh, dir=""):
-        print("running: {}".format(template.name))
+        # print("running: {}".format(template.name))
         try:
             output = jh.render(template)
             msg = "ok"
@@ -117,31 +133,38 @@ class ExecuteTemplates(TemplateView):
                     template.name), 'w') as fp:
                 fp.write(output)
 
+        return msg
 
-        # TODO: write in outputfile
 
     def export_textblocks(self):
         """Look at all textblocks, produce md files if requested"""
 
         template_dir = proposal.models.Setting.get_default('dirs', 'templates')
+        latex_dir = proposal.models.Setting.get_default('dirs', 'latex')
         for tb in proposal.models.Textblock.objects.exclude(filename__isnull=True):
-            print("textblock production: ", tb)
+            # print("textblock production: ", tb)
 
             filename = tb.filename
-            if not filename[-3:] == ".md":
+            if filename[-3:] == ".md":
+                outdir = template_dir
+            elif filename[-4:] == ".tex":
+                outdir = latex_dir
+            else:
                 filename += ".md"
+                outdir = template_dir
 
-            with open(os.path.join(template_dir,
+            with open(os.path.join(outdir,
                                    filename),
                       'w') as fp:
                 fp.write(tb.textblock)
 
 
     def get_context_data(self, **kwargs):
-        print (kwargs)
+        # print (kwargs)
         r = {}
 
         template_dir = proposal.models.Setting.get_default('dirs', 'templates')
+        latex_dir = proposal.models.Setting.get_default('dirs', 'latex')
 
         # ensure that directory exists
         os.makedirs(template_dir, mode=0o700, exist_ok=True)
@@ -165,9 +188,11 @@ class ExecuteTemplates(TemplateView):
         jh = JinjaHandler()
 
         for t in templatelist:
-            print("template: ", t)
-            tmp = self.execute_template(t, jh,
-                                        dir=template_dir)
+            outdir = latex_dir if t.name[-4:] == ".tex" else template_dir
+            # print("template: ", t, outdir)
+            tmp = self.execute_template(
+                t, jh, dir=outdir)
+
             r[t.name] = tmp
 
         ###############
@@ -202,7 +227,7 @@ class CreateLatex(TemplateView):
                     t.with_suffix('.tex').name),
                 extra_args=['--chapters', ],
             )
-            print(t)
+            # print(t)
 
         return {'results': r}
 

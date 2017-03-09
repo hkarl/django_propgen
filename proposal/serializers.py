@@ -134,6 +134,13 @@ class DisseminationTypesSerializer(CommentedSerializers):
         fields = "__all__"
 
 class SettingsSerializer(CommentedSerializers):
+
+    # def to_representation(self, instance):
+    #     ret = super().to_representation(instance)
+    #     ret['serializercontext'] = 'blub'
+    #     # print("serializer context: ", ret)
+    #     return ret
+
     class Meta:
         model = proposal.models.Setting
         fields = "__all__"
