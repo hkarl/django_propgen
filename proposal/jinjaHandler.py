@@ -3,10 +3,12 @@
 import jinja2
 
 from pprint import pprint as pp
+from collections import defaultdict
 import os, re
 import math
 
 import proposal.models
+import django_propgen.settings
 import inspect
 import django.db
 
@@ -220,19 +222,33 @@ class JinjaHandler():
                 print(e)
                 pass
 
+        # deal with the singleton model Project separately:
+        data['Project'] = proposal.models.Project.objects.first()
+        data['ProjectDict'] = None
+
+        # deal with the Setting model separately:
+        data['Setting'] = defaultdict(dict)
+        for k, v in django_propgen.settings.default_settings.items():
+            data['Setting'][k].update(v)
+
+        pp(data['Setting'])
+        for s in proposal.models.Setting.objects.all():
+            data['Setting'][s.group][s.name] = s.value
+
+
         return data
 
 
     def get_renderer(self):
         renderer = jinja2.Environment(
-            # comment_start_string = "{###",
-            # comment_end_string = "###}",
+            comment_start_string = "{###",
+            comment_end_string = "###}",
             trim_blocks = True,
             lstrip_blocks = True,
-            # block_start_string = '///%', # default: {%
-            # block_end_string = '%///',
-            # variable_start_string = '///', # default: {{
-            # 1variable_end_string = '///', # default: }}
+            block_start_string = '///%', # default: {%
+            block_end_string = '%///',
+            variable_start_string = '///', # default: {{
+            variable_end_string = '///', # default: }}
         )
 
         renderer.filters.update(JinjaFilters.get_filters())
