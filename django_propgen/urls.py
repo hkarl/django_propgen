@@ -20,6 +20,9 @@ from pprint import pprint as pp
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -44,3 +47,7 @@ import markdownx
 urlpatterns += [
      url(r'^markdownx/', include('markdownx.urls')),
     ]
+
+# Serve uploaded media files:
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
