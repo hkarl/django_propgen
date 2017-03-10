@@ -17,6 +17,7 @@ import pathlib
 import inspect
 import sys
 import os
+import re
 from pprint import pprint as pp
 
 
@@ -218,16 +219,24 @@ class CreateLatex(TemplateView):
         p = pathlib.Path(template_dir)
         for t in list(p.glob('*.md')):
             r[t.name] = "ok"
-            pypandoc.convert_file(
+            latex = pypandoc.convert_file(
                 t.as_posix(),
                 'latex',
                 format="md",
-                outputfile=os.path.join(
-                    latex_dir,
-                    t.with_suffix('.tex').name),
+                # outputfile=os.path.join(
+                #     latex_dir,
+                #     t.with_suffix('.tex').name),
                 extra_args=['--chapters', ],
             )
-            # print(t)
+            latex = re.sub(r"\\includegraphics(\[.*\]){/media", r"\includegraphics\1{media", latex)
+            # print(latex)
+
+            with open(os.path.join(
+                    latex_dir,
+                    t.with_suffix('.tex').name),
+                    "w") as fp:
+                fp.write(latex)
+
 
         return {'results': r}
 
