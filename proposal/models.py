@@ -127,6 +127,16 @@ class Workpackage(reorderhelper.models.ReorderableMixin,
     objectives = MarkdownxField()
     description = MarkdownxField()
 
+    type = models.CharField(
+        verbose_name="WP Type (RTD, MGMT, ...)",
+        help_text="Type of the WP, according to predefined EU list",
+        max_length=10,
+        default="RTD",
+    )
+
+    lead = models.ForeignKey(Partner)
+
+
     def __str__(self):
         return self.title
 
