@@ -74,7 +74,41 @@ class Partner(reorderhelper.models.ReorderableMixin,
 
     partnername = models.CharField(max_length=255)
     shortname = models.CharField(max_length=80)
-    description = MarkdownxField()
+    description = MarkdownxField(
+        verbose_name="Partner description in general",
+        help_text="General description text, will appear before the subsections defined below. "
+        "Typically empty if you fill in the following sections.",
+        blank=True,
+    )
+    organization = MarkdownxField(
+        verbose_name="Organization",
+        help_text="a description of the legal entity and its main tasks, "
+                  "with an explanation of how its profile matches the tasks in the proposal",
+        blank=True,
+    )
+    individuals = MarkdownxField(
+        verbose_name="Individual researchers",
+        help_text="CV or description of key personnel",
+        blank=True,
+    )
+    partnerpublications = MarkdownxField(
+        verbose_name="Relevant publications, products and/or services",
+        help_text="Up to 5 relevant publications, products, services",
+        blank=True,
+    )
+    partnerprojects = MarkdownxField(
+        verbose_name="Previous projects",
+        help_text="Up to 5 previous project or activities, relevant to the proposal",
+        blank=True,
+    )
+    infrastructure = MarkdownxField(
+        verbose_name="Significant infrastructure",
+        help_text="Siginificant infrastructure and/or major technical equipment, "
+        "relevant to the project",
+        blank=True,
+    )
+
+
     country = models.CharField(max_length=3)
 
     PMcost = models.FloatField()
