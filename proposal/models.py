@@ -3,6 +3,8 @@ from django.db import models
 from markdownx.models import MarkdownxField
 from adminsortable.fields import SortableForeignKey
 
+from collections import defaultdict
+
 import reversion 
 
 import reorderhelper.models 
@@ -113,6 +115,10 @@ class Partner(reorderhelper.models.ReorderableMixin,
 
     PMcost = models.FloatField()
 
+    @property
+    def number(self):
+        return 99
+
     dictkey = "shortname"
 
     def __str__(self):
@@ -136,6 +142,29 @@ class Workpackage(reorderhelper.models.ReorderableMixin,
 
     lead = models.ForeignKey(Partner)
 
+    @property
+    def startmonth(self):
+        try:
+            r = min([x.start for x in self.Task_set])
+        except Exception:
+            r = 1
+
+        return r
+
+    @property
+    def endmonth(self):
+
+        try:
+            r = max([x.end for x in self.Task_set])
+        except Exception:
+            r = 99999
+
+        return r
+
+    @property
+    def duration(self):
+        return (self.endmonth -
+                self.startmonth + 1)
 
     def __str__(self):
         return self.title
@@ -172,12 +201,18 @@ class ProducableTypes(models.Model):
                             blank=True, null=True)
     comments = models.TextField(blank=True)
 
+    def __str__(self):
+        return "{} ({})".format(self.long, self.short)
+
 
 class DisseminationTypes(models.Model):
     short = models.CharField(max_length=10)
     long = models.CharField(max_length=200,
                             blank=True, null=True)
     comments = models.TextField(blank=True)
+
+    def __str__(self):
+        return "{} ({})".format(self.long, self.short)
 
 
 @reversion.register()
@@ -203,6 +238,17 @@ class Deliverable(reorderhelper.models.ReorderableMixin,
     def __str__(self):
         return self.title
 
+    @property
+    def tasklist(self):
+        print("tasklist")
+        l1 = ["\\textbf{{\\ref{{{}}}}}".format(self.maintask.tag)]
+        print(l1)
+        l2 = ["\\ref{{{}}}".format(t.tag) for t in self.secondarytasks.all()]
+        print(l2)
+        r = ", ".join(l1 + l2)
+        print(r)
+        return r
+
     class Meta:
         ordering = ['order']
 
@@ -221,9 +267,21 @@ class Milestone(reorderhelper.models.ReorderableMixin,
         Task,
         related_name="secondaryTasks")
 
-    verification = MarkdownxField()
+    verification = models.TextField()
 
     wp = SortableForeignKey(Workpackage)
+
+    @property
+    def tasklist(self):
+        print("tasklist")
+        l1 = ["\\textbf{{\\ref{{{}}}}}".format(self.maintask.tag)]
+        print(l1)
+        l2 = ["\\ref{{{}}}".format(t.tag) for t in self.secondarytasks.all()]
+        print(l2)
+        r = ", ".join(l1 + l2)
+        print(r)
+        return r
+
 
     def __str__(self):
         return self.title
@@ -419,6 +477,36 @@ class Template(models.Model):
                 if not self.description
                 else "{} ({})".format(
                     self.name, self.description[0:50]))
+
+
+############
+class allEfforts():
+    """A class to collect all the different types of efforts
+    in a convenient list of dictionaries. Intended for easy access in
+    templates."""
+
+    def __init__(self):
+        self.data = []
+
+        for partner in Partner.objects.all():
+            for task in TaskPartnerPM.objects.filter(partner=partner):
+                eff = {'partner': partner,
+                       'task': task.task,
+                       'wp': task.task.wp,
+                       'effort': task.effort}
+
+                for deliverable in DeliverablePartnerTaskPM.objects.filter(
+                    partner=partner, task=task.task,
+                    ):
+                    eff['effort'] += deliverable.effort
+
+                for milestone in MilestonePartnerTaskPM.objects.filter(
+                    partner=partner, task=task.task,
+                    ):
+                    eff['effort'] += milestone.effort
+
+                self.data.append(eff)
+
 
 # Make sure that the Reversions ViewSet can find all the relevant models:
 import inspect
