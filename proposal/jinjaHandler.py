@@ -11,6 +11,7 @@ import proposal.models
 import django_propgen.settings
 import inspect
 import django.db
+import pypandoc
 
 
 class JinjaFilters():
@@ -37,6 +38,7 @@ class JinjaFilters():
         filters['sortNumerically'] = JinjaFilters.sortNumerically
         filters['floor'] = JinjaFilters.jinjaFloor
         filters['ceiling'] = JinjaFilters.jinjaCeiling
+        filters['pandoc'] = JinjaFilters.pandoc
         # globals['utils'] = JinjaFilters.utils
         # globals['zip'] = JinjaFilters.zip
 
@@ -44,11 +46,13 @@ class JinjaFilters():
         
 
     def fieldfilter(listofdict, field, value):
+        print("fieldfilter: ", field, value, listofdict)
         try:
             tmp = [x for x in listofdict if value in x[field]]
         except TypeError:
             tmp = [x for x in listofdict if x[field] == value]
-            #  print field, value, tmp
+
+        print (field, value, tmp)
         return tmp
 
     def fieldfilterPositive(listofdict, field):
@@ -84,9 +88,9 @@ class JinjaFilters():
         except:
             return int(math.ceil(somelist))
 
-    def listBoldfacer(someList, keyvalue, formatstr):
+    def listBoldfacer(someList, keyvalue=None):
         return ["\\textbf{" + x + "}"
-                if x == keyvalue else x for x in someList]
+                if keyvalue and (x == keyvalue) else x for x in someList]
 
     def conditionalFormatDict(someDict, filterkey, filterlist, formatstr, flag=False, formatstr2=False):
         ## pp (someDict)
@@ -176,6 +180,21 @@ class JinjaFilters():
 
         return retval
 
+    def pandoc(text, starred=False):
+
+        # print("pandoc starred:", starred)
+
+        r = pypandoc.convert_text(text,
+                                  'latex', 'md',
+                                  extra_args=['--chapters', ],
+                                  )
+        if starred:
+            r = re.sub('subsubsection{', 'subsubsection*{', r)
+            r = re.sub('paragraph{', 'paragraph*{', r)
+            r = re.sub('subparagraph{', 'subparagraph*{', r)
+
+        return r
+
 class PropgenException(Exception):
     pass
 
@@ -235,6 +254,8 @@ class JinjaHandler():
         for s in proposal.models.Setting.objects.all():
             data['Setting'][s.group][s.name] = s.value
 
+        # deal with the allEfforts list
+        data['allEfforts'] = proposal.models.allEfforts().data
 
         return data
 
@@ -288,6 +309,10 @@ class JinjaHandler():
             retval = (template.name + ': Template Error, ' + e.message)
         except Exception as e:
             retval = "Jinja2: Someting wrong at template: " + template.name + " exception: " + e.__class__.__name__
+            try:
+                retval += "\n" + e.message
+            except Exception:
+                pass
 
         raise PropgenTemplateException(retval)
 

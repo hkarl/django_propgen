@@ -173,7 +173,7 @@ class ExecuteTemplates(TemplateView):
         if 'pk' in kwargs:
             try:
                 pk = int(kwargs.pop('pk'))
-                template = proposal.models.Template.objects.get(int())
+                template = proposal.models.Template.objects.get(pk=int(pk))
                 templatelist = [template]
             except:
                 from django.core.exceptions import ObjectDoesNotExist
@@ -218,6 +218,8 @@ class CreateLatex(TemplateView):
         # iterate over all md files in templates; run them through pandoc
         p = pathlib.Path(template_dir)
         for t in list(p.glob('*.md')):
+            # print("----------------------------")
+            # print(t)
             r[t.name] = "ok"
             latex = pypandoc.convert_file(
                 t.as_posix(),
@@ -231,9 +233,11 @@ class CreateLatex(TemplateView):
             latex = re.sub(r"\\includegraphics(\[.*\]){/media", r"\includegraphics\1{media", latex)
             # print(latex)
 
-            with open(os.path.join(
+            output_file = os.path.join(
                     latex_dir,
-                    t.with_suffix('.tex').name),
+                    t.with_suffix('.tex').name)
+            # print(output_file)
+            with open(output_file,
                     "w") as fp:
                 fp.write(latex)
 
