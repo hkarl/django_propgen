@@ -65,7 +65,7 @@ class WorkpackageSerializer(CommentedSerializers):
     objectives = MarkdownxRestField()
     class Meta:
         model = proposal.models.Workpackage
-        fields = ["title", "objectives", "description"]
+        fields = ["title", "tag", "type", "lead", "objectives", "description"]
 
 class TaskSerializer(CommentedSerializers):
     description = MarkdownxRestField()
