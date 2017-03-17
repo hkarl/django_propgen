@@ -183,6 +183,7 @@ class Task(reorderhelper.models.ReorderableMixin,
     start = models.PositiveIntegerField()
     end = models.PositiveIntegerField()
 
+    objectives = MarkdownxField()
     description = MarkdownxField()
 
     wp = SortableForeignKey(Workpackage)
@@ -190,6 +191,12 @@ class Task(reorderhelper.models.ReorderableMixin,
 
     def __str__(self):
         return self.title
+
+    def interval(self):
+        return [(self.start, self.end), ]
+
+    def contributors(self):
+        return set([x.partner.shortname for x in self.taskpartnerpm_set.all()])
 
     class Meta:
         ordering = ['order']
@@ -228,7 +235,7 @@ class Deliverable(reorderhelper.models.ReorderableMixin,
     secondarytasks = models.ManyToManyField(
         Task,
         blank=True,
-        related_name="secondarytasks")
+        related_name="deliverable_secondaryTasks")
 
     type = models.ForeignKey(ProducableTypes)
     dissemination = models.ForeignKey(DisseminationTypes)
@@ -265,9 +272,9 @@ class Milestone(reorderhelper.models.ReorderableMixin,
     maintask = models.ForeignKey(Task, blank=True)
     secondarytasks = models.ManyToManyField(
         Task,
-        related_name="secondaryTasks")
+        related_name="milestone_secondaryTasks")
 
-    verification = models.TextField()
+    verification = MarkdownxField()
 
     wp = SortableForeignKey(Workpackage)
 
