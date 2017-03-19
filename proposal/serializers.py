@@ -53,6 +53,11 @@ class SomeModelSerializers(CommentedSerializers):
         fields = "__all__"
 
 
+class PartnertypeSerializer(CommentedSerializers):
+    class Meta:
+        model = proposal.models.Partnertype
+        fields = "__all__"
+
 class PartnerSerializer(CommentedSerializers):
     description = MarkdownxFormField()
     class Meta:

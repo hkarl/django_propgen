@@ -28,6 +28,11 @@ class SomeModelViewSet(FormModelViewSet, ReorderMixin):
     detail_template = "SomeModel_DetailTemplate.html"
     form_template = "SomeModel_FormTemplate.html"
 
+class PartnertypeModelViewSet(FormModelViewSet, ReorderMixin):
+    serializer_class = proposal.serializers.PartnertypeSerializer
+    model_class = proposal.models.Partnertype
+
+
 class PartnerModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.PartnerSerializer
     model_class = proposal.models.Partner

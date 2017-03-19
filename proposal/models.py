@@ -70,12 +70,26 @@ class Textblock(reorderhelper.models.ReorderableMixin,
 
 
 @reversion.register()
+class Partnertype(reorderhelper.models.ReorderableMixin,
+                  models.Model):
+    shortname = models.CharField(max_length=20,
+                            help_text="Short form of partner types")
+    description = models.CharField(max_length=128)
+
+    def __str__(self):
+        return "{}: {}".format(self.type, self.description)
+
+@reversion.register()
 class Partner(reorderhelper.models.ReorderableMixin,
                   models.Model):
 
 
     partnername = models.CharField(max_length=255)
     shortname = models.CharField(max_length=80)
+
+    partnertype = models.ForeignKey(Partnertype,
+                             blank=True, null=True)
+
     description = MarkdownxField(
         verbose_name="Partner description in general",
         help_text="General description text, will appear before the subsections defined below. "
