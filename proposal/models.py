@@ -77,7 +77,7 @@ class Partnertype(reorderhelper.models.ReorderableMixin,
     description = models.CharField(max_length=128)
 
     def __str__(self):
-        return "{}: {}".format(self.type, self.description)
+        return "{}: {}".format(self.shortname, self.description)
 
 @reversion.register()
 class Partner(reorderhelper.models.ReorderableMixin,
@@ -89,6 +89,11 @@ class Partner(reorderhelper.models.ReorderableMixin,
 
     partnertype = models.ForeignKey(Partnertype,
                              blank=True, null=True)
+
+    pic = models.CharField(max_length=16,
+                           verbose_name="PIC",
+                           help_text="Participant Identification Code",
+                           default="")
 
     description = MarkdownxField(
         verbose_name="Partner description in general",
@@ -119,7 +124,7 @@ class Partner(reorderhelper.models.ReorderableMixin,
     )
     infrastructure = MarkdownxField(
         verbose_name="Significant infrastructure",
-        help_text="Siginificant infrastructure and/or major technical equipment, "
+        help_text="Significant infrastructure and/or major technical equipment, "
         "relevant to the project",
         blank=True,
     )
@@ -127,7 +132,116 @@ class Partner(reorderhelper.models.ReorderableMixin,
 
     country = models.CharField(max_length=3)
 
-    PMcost = models.FloatField()
+    #############################
+    # Budget-related information
+
+    PMcost = models.FloatField(
+        verbose_name="Person month cost",
+        help_text="This relates to the Direct Personnel Cost (Col. A) via the number of personmonths",
+        default=0.,
+    )
+
+    reimbursement_rate = models.FloatField(
+        verbose_name="Reimbursement rate",
+        help_text="Make sure the reimbursement rate is consistent with the partner type",
+        default=100.,
+    )
+
+    other_direct_cost = models.FloatField(
+        verbose_name="Other direct cost",
+        help_text="Corresponds to Col. B. If negative, the value is computed from other fields!",
+        default=-1.,
+    )
+
+    other_direct_cost_explanation = MarkdownxField(
+        verbose_name="Explanation for other direct cost",
+        help_text="Provide explanation for other direct cost if they exceed 15% of the personnel cost (as per guidelines).",
+        blank=True,
+    )
+
+    subcontract_cost = models.FloatField(
+        verbose_name="Subcontractig cost",
+        help_text="Total cost of all subcontracting done by this partner",
+        default=0.,
+    )
+
+    subcontract_cost_explanation = MarkdownxField(
+        verbose_name="Explanation for subcontracts",
+        help_text="Usually, explanation for subcontracting is necessary",
+        blank=True,
+    )
+
+    finanical_support_3rd = models.FloatField(
+        verbose_name="Financial support for 3rd parties",
+        default=0.,
+    )
+
+    finanical_support_3rd_explanation = MarkdownxField(
+        verbose_name="Explanation of financial support to 3rd parties",
+        help_text="Provide explanation",
+        blank = True,
+    )
+
+    inkind_contributions = models.FloatField(
+        verbose_name="In-kind contributions",
+        default = 0.,
+    )
+
+    inkind_contributions_explanations = MarkdownxField(
+        verbose_name="Explanation of in-kind contributions",
+        blank=True,
+    )
+
+    special_uni_cost = models.FloatField(
+        verbose_name="Special unit cost",
+        default = 0.,
+    )
+
+    special_uni_cost_explanation = MarkdownxField(
+        verbose_name="Explanation of special unit cost",
+        blank=True,
+    )
+
+    _requested_contribution = models.FloatField(
+        verbose_name="Requested contribution",
+        help_text="Default negative value means requested contribution equals maximum contribution."
+                  "Only fill in this field if you want to request less money than the maximum "
+                  "allows you to do. This is usually not recommended.",
+        default = -1.,
+    )
+
+    @property
+    def personmonths(self):
+        ae = allEfforts().data
+        return sum([x.effort for x in ae if x['partner'] == self])
+
+    @property
+    def indirect_cost(self):
+
+        return 0.25*(self.personmonths*self.PMcost +
+                     self.other_direct_cost +
+                     self.inkind_contributions)
+
+    @property
+    def total_cost(self):
+        return (self.personmonths*self.PMcost +
+                self.other_direct_cost +
+                self.subcontract_cost +
+                self.finanical_support_3rd +
+                self.indirect_cost +
+                self.special_uni_cost
+                )
+
+    @property
+    def maxcontribution(self):
+        return self.reimbursement_rate * self.total_cost
+
+    @property
+    def requested_contribution(self):
+        if self._requested_contribution < 0:
+            return self.maxcontribution
+        else:
+            return self._requested_contribution
 
     @property
     def number(self):
@@ -171,7 +285,7 @@ class Workpackage(reorderhelper.models.ReorderableMixin,
         try:
             r = max([x.end for x in self.Task_set])
         except Exception:
-            r = 99999
+            r = Project.objects.first().duration
 
         return r
 
@@ -261,13 +375,13 @@ class Deliverable(reorderhelper.models.ReorderableMixin,
 
     @property
     def tasklist(self):
-        print("tasklist")
+        # print("tasklist")
         l1 = ["\\textbf{{\\ref{{{}}}}}".format(self.maintask.tag)]
-        print(l1)
+        # print(l1)
         l2 = ["\\ref{{{}}}".format(t.tag) for t in self.secondarytasks.all()]
-        print(l2)
+        # print(l2)
         r = ", ".join(l1 + l2)
-        print(r)
+        # print(r)
         return r
 
     class Meta:
@@ -294,13 +408,13 @@ class Milestone(reorderhelper.models.ReorderableMixin,
 
     @property
     def tasklist(self):
-        print("tasklist")
+        # print("tasklist")
         l1 = ["\\textbf{{\\ref{{{}}}}}".format(self.maintask.tag)]
-        print(l1)
+        # print(l1)
         l2 = ["\\ref{{{}}}".format(t.tag) for t in self.secondarytasks.all()]
-        print(l2)
+        # print(l2)
         r = ", ".join(l1 + l2)
-        print(r)
+        # print(r)
         return r
 
 
