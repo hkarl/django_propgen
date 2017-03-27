@@ -117,6 +117,10 @@ class TextblockModelViewSet(FormModelViewSet, ReorderMixin):
     serializer_class = proposal.serializers.TextblockSerializer
     model_class = proposal.models.Textblock
 
+class BibliographyModelViewSet(FormModelViewSet, ReorderMixin):
+    serializer_class = proposal.serializers.BibliographySerializer
+    model_class = proposal.models.Bibliography
+
 
 ##########################################
 # Serious views below

@@ -161,3 +161,8 @@ class TextblockSerializer(CommentedSerializers):
     class Meta:
         model = proposal.models.Textblock
         fields = "__all__"
+
+class BibliographySerializer(CommentedSerializers):
+    class Meta:
+        model = proposal.models.Bibliography
+        fields = "__all__"

@@ -71,6 +71,22 @@ class Textblock(reorderhelper.models.ReorderableMixin,
 
 
 @reversion.register()
+class Bibliography(reorderhelper.models.ReorderableMixin,
+                  models.Model):
+    filename = models.CharField(
+        verbose_name="Name of the bibliography file, including extension",
+        help_text=("Extension of the filename will be used to determine how "
+                  "to process this file."),
+        max_length=64,
+    )
+
+    bibliography = models.TextField(
+        verbose_name="Biboliographic information",
+        help_text=("Enter the actual bibliographic information, "
+                   "depending on the format you are using. ")
+    )
+
+@reversion.register()
 class Partnertype(reorderhelper.models.ReorderableMixin,
                   models.Model):
     shortname = models.CharField(max_length=20,
