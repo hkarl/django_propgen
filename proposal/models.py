@@ -4,6 +4,7 @@ from markdownx.models import MarkdownxField
 from adminsortable.fields import SortableForeignKey
 
 from collections import defaultdict
+from decimal import Decimal
 
 import reversion 
 
@@ -135,22 +136,28 @@ class Partner(reorderhelper.models.ReorderableMixin,
     #############################
     # Budget-related information
 
-    PMcost = models.FloatField(
+    PMcost = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
         verbose_name="Person month cost",
         help_text="This relates to the Direct Personnel Cost (Col. A) via the number of personmonths",
-        default=0.,
+        default=Decimal('0'),
     )
 
-    reimbursement_rate = models.FloatField(
+    reimbursement_rate = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
         verbose_name="Reimbursement rate",
         help_text="Make sure the reimbursement rate is consistent with the partner type",
-        default=100.,
+        default=Decimal('100'),
     )
 
-    other_direct_cost = models.FloatField(
+    _other_direct_cost = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         verbose_name="Other direct cost",
         help_text="Corresponds to Col. B. If negative, the value is computed from other fields!",
-        default=-1.,
+        default=Decimal('-1'),
     )
 
     other_direct_cost_explanation = MarkdownxField(
@@ -159,10 +166,12 @@ class Partner(reorderhelper.models.ReorderableMixin,
         blank=True,
     )
 
-    subcontract_cost = models.FloatField(
+    subcontract_cost = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         verbose_name="Subcontractig cost",
         help_text="Total cost of all subcontracting done by this partner",
-        default=0.,
+        default=Decimal('0'),
     )
 
     subcontract_cost_explanation = MarkdownxField(
@@ -171,9 +180,11 @@ class Partner(reorderhelper.models.ReorderableMixin,
         blank=True,
     )
 
-    finanical_support_3rd = models.FloatField(
+    finanical_support_3rd = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         verbose_name="Financial support for 3rd parties",
-        default=0.,
+        default=Decimal('0'),
     )
 
     finanical_support_3rd_explanation = MarkdownxField(
@@ -182,9 +193,11 @@ class Partner(reorderhelper.models.ReorderableMixin,
         blank = True,
     )
 
-    inkind_contributions = models.FloatField(
+    inkind_contributions = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         verbose_name="In-kind contributions",
-        default = 0.,
+        default = Decimal('0'),
     )
 
     inkind_contributions_explanations = MarkdownxField(
@@ -192,9 +205,11 @@ class Partner(reorderhelper.models.ReorderableMixin,
         blank=True,
     )
 
-    special_uni_cost = models.FloatField(
+    special_uni_cost = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         verbose_name="Special unit cost",
-        default = 0.,
+        default = Decimal('0'),
     )
 
     special_uni_cost_explanation = MarkdownxField(
@@ -202,25 +217,38 @@ class Partner(reorderhelper.models.ReorderableMixin,
         blank=True,
     )
 
-    _requested_contribution = models.FloatField(
+    _requested_contribution = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         verbose_name="Requested contribution",
         help_text="Default negative value means requested contribution equals maximum contribution."
                   "Only fill in this field if you want to request less money than the maximum "
                   "allows you to do. This is usually not recommended.",
-        default = -1.,
+        default = Decimal('-1'),
     )
+
+    @property
+    def other_direct_cost(self):
+        if self._other_direct_cost < 0:
+            return self.personmonths*self.PMcost * Decimal('0.15')
+        else:
+            return self._other_direct_cost
 
     @property
     def personmonths(self):
         ae = allEfforts().data
-        return sum([x.effort for x in ae if x['partner'] == self])
+        return sum([x["effort"] for x in ae if x['partner'] == self])
+
+    @property
+    def personnel_cost(self):
+        return self.PMcost * self.personmonths
 
     @property
     def indirect_cost(self):
 
-        return 0.25*(self.personmonths*self.PMcost +
+        return (self.personmonths*self.PMcost +
                      self.other_direct_cost +
-                     self.inkind_contributions)
+                     self.inkind_contributions) * Decimal('0.25')
 
     @property
     def total_cost(self):
@@ -239,13 +267,25 @@ class Partner(reorderhelper.models.ReorderableMixin,
     @property
     def requested_contribution(self):
         if self._requested_contribution < 0:
-            return self.maxcontribution
+            r = self.maxcontribution
+            return r
         else:
             return self._requested_contribution
 
     @property
     def number(self):
         return 99
+
+
+    @property
+    def budget_explanations(self):
+        return (len(self.other_direct_cost_explanation) > 0 or
+                len(self.subcontract_cost_explanation) > 0 or
+                len(self.finanical_support_3rd_explanation) > 0  or
+                len(self.inkind_contributions_explanations) > 0 or
+                len(self.special_uni_cost_explanation) > 0
+                )
+
 
     dictkey = "shortname"
 
