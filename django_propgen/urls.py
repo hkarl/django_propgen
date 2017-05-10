@@ -22,11 +22,15 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+import proposal
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name="home.html"))    
+    url(r'^$', TemplateView.as_view(template_name="home.html"),
+        {# 'pdfs': ['main.pdf'],
+        'producedmedia': proposal.models.Setting.get_default('dirs', 'producedmedia'),
+         })
 ]
 
 from proposal.urls import router, vrouters
