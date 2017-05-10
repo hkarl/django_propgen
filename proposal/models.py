@@ -86,6 +86,9 @@ class Bibliography(reorderhelper.models.ReorderableMixin,
                    "depending on the format you are using. ")
     )
 
+    def __str__(self):
+        return self.filename
+
 @reversion.register()
 class Partnertype(reorderhelper.models.ReorderableMixin,
                   models.Model):
@@ -594,6 +597,9 @@ class Project(
         max_length=128,
         blank=True, null=True,
     )
+
+    def __str__(self):
+        return self.shortname + ": " + self.title[:50]
 
 
 @reversion.register()
