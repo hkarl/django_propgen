@@ -145,7 +145,7 @@ REST_FRAMEWORK = {
 # Markdownx configuration
 
 # Media path
-MARKDOWNX_MEDIA_PATH = '' # Path, where images will be stored in MEDIA_ROOT folder
+MARKDOWNX_MEDIA_PATH = 'upload' # Path, where images will be stored in MEDIA_ROOT folder
 
 # MEDIA_ROOT:
 MEDIA_ROOT = "media/"
