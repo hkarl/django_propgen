@@ -160,5 +160,14 @@ default_settings = {
     'dirs': {'templates': 'templates',
              'latex': 'latex',
              'md': 'md',
+             'producedmedia': os.path.join(MEDIA_ROOT, 'produced'),
+             'uploaded': os.path.join(MEDIA_ROOT, MARKDOWNX_MEDIA_PATH),
+             'tarball': os.path.join(MEDIA_ROOT, 'produced', 'output.tgz')
              },
+    'pandoc': {'filters': ['../pandoc/.cabal-sandbox/bin/pandoc-crossref',
+                           # '../pandoc/.cabal-sandbox/bin/pandoc-citeproc',
+                           ],
+               'extra_args': ['--top-level-division=chapter',
+                              '--natbib',
+                              ]}
 }
