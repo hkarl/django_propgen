@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
-
+from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.views.generic import TemplateView, RedirectView
+from django.http import HttpResponse
 
 
 import proposal.models 
@@ -17,7 +17,11 @@ import pathlib
 import inspect
 import sys
 import os
+import shutil
+import tarfile
 import re
+import subprocess
+
 from pprint import pprint as pp
 
 
@@ -129,6 +133,19 @@ class BibliographyModelViewSet(FormModelViewSet, ReorderMixin):
 class ExecuteTemplates(TemplateView):
     template_name = "execute_template.html"
 
+    def get_settings(self):
+        self.template_dir = proposal.models.Setting.get_default('dirs', 'templates')
+        self.latex_dir = proposal.models.Setting.get_default('dirs', 'latex')
+
+
+    def export_bibliographies(self):
+
+        for bib in proposal.models.Bibliography.objects.filter(filename__endswith=".bib"):
+            """TODO: so far, only handle bibtex files"""
+            with open(os.path.join(self.latex_dir, bib.filename), 'w') as fp:
+                fp.write(bib.bibliography)
+
+
     def execute_template(self, template, jh, dir=""):
         # print("running: {}".format(template.name))
         try:
@@ -148,36 +165,37 @@ class ExecuteTemplates(TemplateView):
 
     def export_textblocks(self):
         """Look at all textblocks, produce md files if requested"""
+        r = []
 
-        template_dir = proposal.models.Setting.get_default('dirs', 'templates')
-        latex_dir = proposal.models.Setting.get_default('dirs', 'latex')
         for tb in proposal.models.Textblock.objects.exclude(filename__isnull=True):
             # print("textblock production: ", tb)
 
             filename = tb.filename
             if filename[-3:] == ".md":
-                outdir = template_dir
+                outdir = self.template_dir
             elif filename[-4:] == ".tex":
-                outdir = latex_dir
+                outdir = self.latex_dir
             else:
                 filename += ".md"
-                outdir = template_dir
+                outdir = self.template_dir
 
             with open(os.path.join(outdir,
                                    filename),
                       'w') as fp:
                 fp.write(tb.textblock)
 
+            r.append({'obj': tb, 'result': "written to disk"})
 
-    def get_context_data(self, **kwargs):
+        return r
+
+    def entrypoint(self, **kwargs):
         # print (kwargs)
-        r = {}
+        r = {'results': []}
 
-        template_dir = proposal.models.Setting.get_default('dirs', 'templates')
-        latex_dir = proposal.models.Setting.get_default('dirs', 'latex')
+        self.get_settings()
 
         # ensure that directory exists
-        os.makedirs(template_dir, mode=0o700, exist_ok=True)
+        os.makedirs(self.template_dir, mode=0o700, exist_ok=True)
 
         if 'pk' in kwargs:
             try:
@@ -192,20 +210,26 @@ class ExecuteTemplates(TemplateView):
 
 
         ############
-        self.export_textblocks()
+        r['tbresults'] = self.export_textblocks()
+        r['bibresults'] = self.export_bibliographies()
 
         ############
         jh = JinjaHandler()
 
         for t in templatelist:
-            outdir = latex_dir if t.name[-4:] == ".tex" else template_dir
+            outdir = self.latex_dir if t.name[-4:] == ".tex" else self.template_dir
             # print("template: ", t, outdir)
             tmp = self.execute_template(
                 t, jh, dir=outdir)
 
-            r[t.name] = tmp
+            r['results'].append({'obj': t, 'result': tmp})
 
         ###############
+
+        return r
+
+    def get_context_data(self, **kwargs):
+        r = self.entrypoint(**kwargs)
         r.update(super().get_context_data(**kwargs))
 
         return r
@@ -215,35 +239,44 @@ class CreateLatex(TemplateView):
 
     template_name = "create_latex.html"
 
+    def get_settings(self):
+        self.template_dir = proposal.models.Setting.get_default('dirs', 'templates')
+        self.latex_dir = proposal.models.Setting.get_default('dirs', 'latex')
+        self.filters = proposal.models.Setting.get_default('pandoc', 'filters')
+        self.extra_args = proposal.models.Setting.get_default('pandoc', 'extra_args')
 
     def run_pandoc(self):
         r = {}
-        template_dir = proposal.models.Setting.get_default('dirs', 'templates')
-        latex_dir = proposal.models.Setting.get_default('dirs', 'latex')
 
         # ensure latexdir exists:
-        os.makedirs(latex_dir, mode=0o700, exist_ok=True)
+        os.makedirs(self.latex_dir, mode=0o700, exist_ok=True)
 
         # iterate over all md files in templates; run them through pandoc
-        p = pathlib.Path(template_dir)
+        p = pathlib.Path(self.template_dir)
         for t in list(p.glob('*.md')):
             # print("----------------------------")
             # print(t)
             r[t.name] = "ok"
-            latex = pypandoc.convert_file(
-                t.as_posix(),
-                'latex',
-                format="md",
-                # outputfile=os.path.join(
-                #     latex_dir,
-                #     t.with_suffix('.tex').name),
-                extra_args=['--chapters', ],
-            )
-            latex = re.sub(r"\\includegraphics(\[.*\]){/media", r"\includegraphics\1{media", latex)
-            # print(latex)
+
+            try:
+
+                latex = pypandoc.convert_file(
+                    t.as_posix(),
+                    'latex',
+                    format="md",
+                    # outputfile=os.path.join(
+                    #     latex_dir,
+                    #     t.with_suffix('.tex').name),
+                    extra_args=self.extra_args,
+                    filters=self.filters,
+                )
+                latex = re.sub(r"\\includegraphics(\[.*\]){/media", r"\includegraphics\1{media", latex)
+            except Exception as e:
+                r[t.name] = "Error during pandoc conversion: {}".format(e.__str__())
+                latex = "ERROR"
 
             output_file = os.path.join(
-                    latex_dir,
+                    self.latex_dir,
                     t.with_suffix('.tex').name)
             # print(output_file)
             with open(output_file,
@@ -253,9 +286,166 @@ class CreateLatex(TemplateView):
 
         return {'results': r}
 
-    def get_context_data(self, **kwargs):
+    def entrypoint(self, **kwargs):
+        self.get_settings()
         r = self.run_pandoc()
+        return r
+
+    def get_context_data(self, **kwargs):
+        r = self.entrypoint(**kwargs)
         r.update(super().get_context_data(**kwargs))
 
         return r
     
+class RunPdflatex(TemplateView):
+
+    template_name = "pdf.html"
+
+    def get_settings(self):
+        self.produced_dir = proposal.models.Setting.get_default('dirs', 'producedmedia')
+        self.latex_dir = proposal.models.Setting.get_default('dirs', 'latex')
+        self.uploaded_dir = proposal.models.Setting.get_default('dirs', 'uploaded')
+        self.templates_dir = proposal.models.Setting.get_default('dirs', 'templates')
+        self.tarball = proposal.models.Setting.get_default('dirs', 'tarball')
+
+    def runcommand(self, *args):
+        r = {'warning': '', 'result': None, 'exception': '',}
+        print(list(args))
+        try:
+            compProc = subprocess.run(
+                list(args),
+                universal_newlines=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                cwd=self.latex_dir,
+            )
+
+            r['result'] = compProc
+
+        except Exception as e:
+            r['exception'] += e.__str__()
+
+        return r
+
+    def bibtex(self, template):
+        return self.runcommand('bibtex', template.name[:-4])
+
+    def pdflatex(self, template):
+        """Run pdflatex once on given template"""
+
+        return self.runcommand('pdflatex', template.name, '-interaction=nonstopmode')
+
+
+    def pdflatex_template(self, template):
+
+        r = {'obj': template, 'warning': '', 'result': 'ok'}
+
+        if not template.startpoint:
+            r['warning'] += "This template is NOT a startpoint. Unlikely to produce useful results!"
+
+        if not template.name.endswith('.tex'):
+            r['warning'] += ("You are trying to run pdflatex on a non-latex template."
+                "This is highly unlikely to produce useful results.")
+        else:
+            r['pdf'] = template.name[:-4]+".pdf"
+
+
+        # TODO: check that file exists, but it should...
+
+
+        r.update({'run1': self.pdflatex(template)})
+        r.update({'bibtex': self.bibtex(template)})
+        # r.update({'run2': self.pdflatex(template)})
+        # r.update({'run3': self.pdflatex(template)})
+
+
+        return r
+
+    def link_pdf(self):
+        latex_dir = pathlib.Path(self.latex_dir)
+        # create symbolic links from media directory to latex dir
+        # for produced PDFs
+
+        for d in list(latex_dir.glob('*.pdf')):
+            print(d)
+            try:
+                shutil.copy2(d.as_posix(), self.produced_dir)
+            except FileExistsError as e:
+                print(e)
+                pass
+            except Exception as e:
+                print(e)
+
+    def produce_tarball(self):
+
+        with tarfile.open(self.tarball, "w:gz") as tarfp:
+            tarfp.add(self.latex_dir)
+            tarfp.add(self.templates_dir)
+            tarfp.add(self.uploaded_dir)
+
+
+
+
+    def entrypoint(self, **kwargs):
+        self.get_settings()
+
+        pk = kwargs.pop('pk', None)
+        print(pk)
+        result = super().get_context_data(**kwargs)
+
+        if pk:
+            startfiles = [get_object_or_404(proposal.models.Template,
+                                           pk=pk)]
+        else:
+            startfiles = get_list_or_404(proposal.models.Template,
+                                         startpoint=True)
+
+        print(startfiles)
+
+        # go to the right directory; do that once for all templates
+
+        # produce all pdfs
+        result['startfiles'] = [self.pdflatex_template(s)
+                                for s in startfiles]
+
+        self.link_pdf()
+        self.produce_tarball()
+
+        return result
+
+    def get_context_data(self, **kwargs):
+        r = self.entrypoint(**kwargs)
+        r.update(super().get_context_data(**kwargs))
+        return r
+
+
+class getNewPdf(RedirectView):
+
+    url = "/" + proposal.models.Setting.get_default('dirs', 'producedmedia')
+
+    def get_redirect_url(self, *args, **kwargs):
+        print("In getNewPdf")
+
+        filename = kwargs.get('filename', None)
+        if filename:
+            template_name = re.sub('.pdf$', '.tex', filename)
+            template = get_object_or_404(
+                proposal.models.Template,
+                name__startswith=template_name,
+                startpoint=True
+            )
+
+        print("filename: ", filename, template)
+
+        r = {}
+        r.update(ExecuteTemplates().entrypoint(**kwargs))
+        r.update(CreateLatex().entrypoint(**kwargs))
+        r.update(RunPdflatex().entrypoint(pk=template.pk,
+                                          **kwargs))
+
+        # TODO: error checking!
+
+        # redir = super().get_redirect_url(url = "/blasdsja", *args, **kwargs)
+        redir = self.url + "/" + filename
+        print("redirecting: ", redir)
+        return redir

@@ -4,6 +4,9 @@ import jinja2
 
 from pprint import pprint as pp
 from collections import defaultdict
+from functools import reduce
+from itertools import groupby
+from django.db.models.query import QuerySet
 import os, re
 import math
 
@@ -27,8 +30,8 @@ class JinjaFilters():
         filters['groupBy'] = JinjaFilters.groupBy
         filters['lookup'] = JinjaFilters.lookup
         filters['map2'] = JinjaFilters.map2
-        # filters['mapReduce'] = JinjaFilters.utils.mapReduce
-        # filters['roundPie'] = JinjaFilters.utils.roundPie
+        filters['mapReduce'] = JinjaFilters.mapReduce
+        filters['roundPie'] = JinjaFilters.roundPie
         filters['fieldfilterPositive'] = JinjaFilters.fieldfilterPositive
         filters['listBoldfacer'] = JinjaFilters.listBoldfacer
         filters['formatListofTuples'] = JinjaFilters.formatListofTuples
@@ -44,15 +47,55 @@ class JinjaFilters():
 
         return filters
         
+    def roundPie(l):
+
+        s = sum([x[1] for x in l])
+
+        unrounded = [int(100*x[1]/s) for x in l]
+        # print("roundPie 1: ", l, unrounded)
+        remainders = [x[1] - int(x[1]) for x in l]
+
+        while sum(unrounded) < 100:
+            # find the largest remainder and round that index up
+            largestInd = remainders.index(max(remainders))
+            remainders[largestInd] = 0
+            unrounded[largestInd] += 1
+
+
+        # print("roundPie: ", l, unrounded)
+        return [ (ll[0], val)
+            for ll, val in zip(l, unrounded)
+        ]
+
+    def mapReduce(l, fct):
+        # print("mapReduce1: ", l, fct)
+        fct = eval(fct)
+
+        sortedlist = sorted(l, key=lambda k: k[0])
+        # print("mapReduce2: ", sortedlist)
+
+        groups = groupby(sortedlist, lambda x: x[0])
+
+        r = []
+        for g in groups:
+            groupid = g[0]
+            values = [x[1] for x in g[1]]
+            tmp = reduce(fct, values)
+            # print("mapReduce 2a: ", groupid, values, tmp)
+            r.append((groupid, tmp))
+
+
+        # print("mapReduce 3: ", r)
+        return r
 
     def fieldfilter(listofdict, field, value):
-        print("fieldfilter: ", field, value, listofdict)
+        # print("fieldfilter: ", field, value, listofdict)
         try:
             tmp = [x for x in listofdict if value in x[field]]
         except TypeError:
             tmp = [x for x in listofdict if x[field] == value]
 
-        print (field, value, tmp)
+        # print (field, value, tmp)
         return tmp
 
     def fieldfilterPositive(listofdict, field):
@@ -108,28 +151,30 @@ class JinjaFilters():
         return tmp
 
     def compactGantts(l):
-        global data
 
-        inputlist = sorted(l, key=lambda x: int(x['Month due']))
+        inputlist = sorted(l, key=lambda x: int(x.due))
 
         maxNumLines = len(inputlist)
-        projectDuration = int(data['mainData']["Duration"])
+        projectDuration = int(proposal.models.Project.objects.first().duration)
 
         occupancyMatrix = [[False for i in range(projectDuration + 1)] for j in range(maxNumLines)]
 
         for entry in inputlist:
             # search the first line where the month of this entry is not yet occupied
             line = 0
-            while occupancyMatrix[line][int(entry['Month due'])] == True:
+            while occupancyMatrix[line][int(entry.due)] == True:
                 line += 1
 
-            entry['ganttLine'] = line
+            entry.ganttLine = line
 
-            for m in range(int(entry['Month due']), \
-                           min(int(projectDuration) + 1,
-                               int(entry['Month due']) + int(data['config']["Gantts"]['ganttDistanceBetweenMS']))):
+            for m in range(int(entry.due), \
+                           min(projectDuration + 1,
+                               int(entry.due) +
+                               int(proposal.models.Setting.get_default("Gantts", 'ganttDistanceBetweenMS'))
+                               )):
                 occupancyMatrix[line][m] = True
 
+        # print("compactGantts: ", inputlist, [x.ganttLine for x in inputlist])
         return inputlist
 
     def unique(l):
@@ -151,32 +196,74 @@ class JinjaFilters():
                 for kk in k]
 
     def lookup(l, d, lookupkey, valuekey, fct=None):
-        import copy
+        def lookupdict(l, d, lookupkey, valuekey, fct):
+            """This is mostly legay code; unlikely to be still needed.
+            Remove!"""
+            return None
+
+            import copy
+            print("lookup lookupkey: ", lookupkey)
+            print("lookup valuekey: ", valuekey)
+            r = []
+            for ll in l:
+                tmp = copy.copy(ll)
+                print("lookup tmp: ", tmp, type(tmp))
+                print("lookup d: ", d, type(d))
+
+                searchkey = tmp[lookupkey]
+                print("lookup searchkey: ", searchkey, type(searchkey))
+
+                try:
+                    # determine value to be inserted:
+                    if isinstance(d, dict):
+                        print("dict")
+                        value = d[searchkey]
+                    else:
+                        value = searchkey.__getattribute__(valuekey)
+                except Exception as e:
+                    print(e)
+
+                print(value)
+                if fct:
+                    tmp[valuekey] = fct(ll, value)
+                else:
+                    tmp[valuekey] = value[valuekey]
+                r.append(tmp)
+            return r
+
 
         if isinstance(fct, str):
             fct = eval(fct)
 
-        # print lookupkey
-        # print valuekey
-        r = []
-        for ll in l:
-            tmp = copy.copy(ll)
-            if fct:
-                tmp[valuekey] = fct(ll, d[tmp[lookupkey]])
-            else:
-                tmp[valuekey] = d[tmp[lookupkey]][valuekey]
-            r.append(tmp)
-        return r
+        if isinstance(d, dict):
+            return lookupdict(l, d, lookupkey, valuekey, fct)
+
+        # typical case: d is a model
+        return None
+
 
     def map2(l, k1, k2):
+        # print("map2: ", l, k1, k2)
         k1list = k1.split('.')
         k2list = k2.split('.')
 
-        retval = [(reduce(lambda d, k: d[k], k1list, x),
-                   reduce(lambda d, k: d[k], k2list, x),)
+        def getvalue(data, key):
+            # print("getvalue: ", data, type(data), key)
+            try:
+                return data[key]
+            except TypeError:
+                return data.__getattribute__(key)
+            except Exception:
+                print("map2: don't know how to access {} at {}".format(
+                    key, data
+                ))
+            return "XXX"
+
+        retval = [(reduce(lambda d, k: getvalue(d, k), k1list, x),
+                   reduce(lambda d, k: getvalue(d, k), k2list, x),)
                   for x in l]
 
-        # print retval
+        # print("map2 done: ", retval)
 
         return retval
 
@@ -294,7 +381,7 @@ class JinjaHandler():
         try:
             ltemplate = self.renderer.from_string(template.template)
             rendered = ltemplate.render(self.data)
-            print("rendered type: ", type(rendered))
+            # print("rendered type: ", type(rendered))
             return rendered
         except jinja2.TemplateSyntaxError as e:
             # print e.message

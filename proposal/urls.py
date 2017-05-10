@@ -50,12 +50,31 @@ for vname, vclass in views:
 #                 proposal.views.ExecuteTemplates.as_view(),
 #                 "execute")
 #
-# pp(router.get_urls())
+pp(router.get_urls())
 
 from django.conf.urls import url, include
 
 urlpatterns =  [
-    url(r'^execute/(?P<pk>\d+)/', proposal.views.ExecuteTemplates.as_view()),
-    url(r'^execute/', proposal.views.ExecuteTemplates.as_view()),
-    url(r'^createLatex/$', proposal.views.CreateLatex.as_view()),
+    url(r'^instantiate/(?P<pk>\d+)/',
+        proposal.views.ExecuteTemplates.as_view(),
+        name="instantiate_one"),
+    url(r'^instantiate/',
+        proposal.views.ExecuteTemplates.as_view(),
+        name="instantiate_all"),
+    url(r'^createLatex/(?P<pk>\d+)$',
+        proposal.views.CreateLatex.as_view(),
+        name="create_latex"),
+    url(r'^createLatex/$',
+        proposal.views.CreateLatex.as_view(),
+        name="create_latex"),
+    url(r'^runLaTeX/(?P<pk>\d+)$',
+        proposal.views.RunPdflatex.as_view(),
+        name="runlatex"),
+    url(r'^runLaTeX/',
+        proposal.views.RunPdflatex.as_view(),
+        name="runlatex"),
+    url(r'^newPdf/(?P<filename>.*)$',
+        proposal.views.getNewPdf.as_view(),
+        name="getpdf")
+
 ]

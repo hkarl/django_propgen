@@ -43,10 +43,12 @@
           </ul>
       </li>
 
-	  <li> <a href="{% url 'milestone-list' %}"> Milestones </a> </li>
-	  <li> <a href="{% url 'partner-list' %}"> Partner
-	  descriptions </a>  </a> </li>
+        <li> <a href="{% url 'milestone-list' %}"> Milestones </a> </li>
+        <li> <a href="{% url 'partner-list' %}"> Partner
+          descriptions </a>  </a> </li>
         <li> <a href="{% url 'partnertype-list' %}"> Partner types </a></li>
+
+        <li> <a href="{% url 'bibliography-list' %}">Bibliographic information </a></li>
 	</ul>
         <li> Budget allocation
             <ul>
@@ -69,13 +71,32 @@
         </li>
         <li> Produce files & output  </li>
         <ul>
-            <li> Execute all templates  </li>
-            <li> Pick individual template to run </li>
-            <li> Produce all output files (PDF) </li>
-            <li> Pick a single output file to produce </li>
+            <li> Typical steps
+                <ul>
+                    <li> <a href="{% url 'instantiate_all' %}"> Instantiate all templates </a>
+                        <br> Note: this usually takes a few seconds </li>
+                    <li> <a href={%  url "create_latex" %}> Produce LaTeX files  from template </a>
+                        <br> Note: this usually takes a few seconds</li>
+                    <li> <a href="{%  url "runlatex" %}"> Produce all output files (PDF) </a> </li>
+                    <li> <a href=""> All in one: Templates, LaTex files, PDF </a></li>
+                </ul>
+            </li>
+            <li> Steps useful for debugging templates and LaTex
+                <ul>
+                    <li> Pick individual template to run (good for debugging) </li>
+                    <li> Produce a single LaTeX file from a specific template </li>
+                    <li> Pick a single output file to produce </li>
+                </ul>
+            </li>
         </ul>
         <li>Produced files
-            <ul> Not implemented so far
+            <ul>
+                {%  for pdf in pdfs %}
+                    <li>
+                    <a href="{{ producedmedia }}/{{  pdf }}"> {{ pdf }}</a>
+                    </li>
+                {%  endfor %}
+                <li> <a href="media/produced/output.tgz"> Download all files </a></li>
             </ul>
         </li>
         <li> <a href="admin/"> Admin </a></li>
