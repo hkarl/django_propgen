@@ -175,7 +175,7 @@ class FormModelViewSet(reversion.views.RevisionMixin,
     @format_capture
     def list(self, request):
         try:
-            d = {'object_list': self.get_queryset()}
+            d = {'object_list': self.get_queryset(), 'serializer': self.serializer_class}
             c = self.get_modelname(request)
             d.update(c)
         except Exception as e:
@@ -190,7 +190,7 @@ class FormModelViewSet(reversion.views.RevisionMixin,
     @format_capture
     def retrieve(self, request, pk=None):
         # print("my retrieve: ", pk, request)
-        d = {'sm': self.get_queryset().get(pk=pk)}
+        d = {'sm': self.get_queryset().get(pk=pk), 'serializer': self.serializer_class}
         d.update(self.get_modelname(self, request))
         return Response(d,
                         template_name=self.detail_template)
