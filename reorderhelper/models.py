@@ -3,6 +3,11 @@ from django.db import models
 from adminsortable.models import SortableMixin
 
 
+class Reordarable(object):
+    def __init__(self, **kwargs):
+        for field in ('id', 'order'):
+            setattr(self, field, kwargs.get(field, None))
+
 
 class ReorderableMixin(SortableMixin):
     """Extends Sortable Mixin by up/down functions

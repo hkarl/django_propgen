@@ -51,14 +51,14 @@ class ReversionsViewSet(viewsets.ModelViewSet):
     
     def list(self, request, *args, **kwargs):
         model_class, model_pk, model_name = self.get_model_pk(kwargs)
-        
+
         print ("RVS list: ", request, args, kwargs, model_pk, model_class)
 
         # get all the Versions of model_class pk=pk object
-        qs = Version.objects.get_for_object_reference(model_class, model_pk)
+        qs = Version.objects.get_for_object_reference(model_class, model_pk).select_related('revision')
         print(qs)
         
-        return Response({'versions': qs,
+        return Response({'serializer': self.serializer_class, 'versions': qs,
                          },
                         template_name=self.get_template(model_class,
                                                             detail=False)
@@ -70,12 +70,12 @@ class ReversionsViewSet(viewsets.ModelViewSet):
 
         try:
             version = Version.objects.get_for_object_reference(
-                model_class, model_pk).get(pk=pk)
+                model_class, model_pk).select_related('revision').get(pk=pk)
             template = self.get_template(model_class,
                                         detail=True)
             print("redirection Version: ", template, version)
             return Response(
-                {'version': version},
+                {'serializer': self.serializer_class, 'version': version},
                 template_name=template
                 )
         except Exception as e:
