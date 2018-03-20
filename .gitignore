@@ -2,6 +2,5 @@
 *.pyo
 *.pyc
 db.sqlite3
-# templates
 latex/*.*
-b04ee7c7-e714-49bb-b1c3-1d2b81f575ca.png
+

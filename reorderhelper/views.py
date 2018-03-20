@@ -3,9 +3,11 @@
 
 from django.shortcuts import render
 
-from rest_framework.decorators import detail_route
+from rest_framework.decorators import detail_route, list_route
 from django.views.generic.detail import SingleObjectMixin
 from django.shortcuts import redirect
+from rest_framework.response import Response
+from reorderhelper.serializers import ReorderableSerializer
 
 
 class ReorderMixin(SingleObjectMixin):
@@ -50,3 +52,15 @@ class ReorderMixin(SingleObjectMixin):
         
         redirect = self.get_redirect_url(self, *args, **kwargs)
         return redirect
+
+    @list_route(methods=['PATCH'])
+    def order(self, request, *args, **kwargs):
+        """
+        Since bulk updating is not supported by Django REST Framework we make our own niche here.
+        Only allow partial updates (id, order), so we do not depend on any other serializer.
+        """
+        serializer = ReorderableSerializer(self.filter_queryset(self.get_queryset()), data=request.data, partial=True,
+                                           many=True, context=self.get_serializer_context())
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data)

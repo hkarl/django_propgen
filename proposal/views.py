@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.views.generic import TemplateView, RedirectView
-from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, get_list_or_404
+from django.views.generic import RedirectView, View
+from django.http import JsonResponse
+from django.views.generic.base import ContextMixin, TemplateResponseMixin
 
-
-import proposal.models 
+import proposal.models
 import proposal.serializers
 from resthelper.views import FormModelViewSet 
 from reorderhelper.views import ReorderMixin
@@ -14,15 +14,11 @@ from proposal.jinjaHandler import JinjaHandler, PropgenTemplateException
 import pypandoc
 import pathlib
 
-import inspect
-import sys
 import os
 import shutil
 import tarfile
 import re
 import subprocess
-
-from pprint import pprint as pp
 
 
 class SomeModelViewSet(FormModelViewSet, ReorderMixin):
@@ -129,8 +125,29 @@ class BibliographyModelViewSet(FormModelViewSet, ReorderMixin):
 ##########################################
 # Serious views below
 
+class ExecutionView(TemplateResponseMixin, ContextMixin, View):
 
-class ExecuteTemplates(TemplateView):
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        response_kwargs = {'content_type': request.content_type}
+        data = self.entrypoint(**kwargs)
+        if request.content_type == 'application/json' or \
+                ('HTTP_ACCEPT' in request.META and 'application/json' in request.META['HTTP_ACCEPT']):
+            return JsonResponse(data)
+        context.update(data)
+        return self.response_class(
+            request=request,
+            template=self.get_template_names(),
+            context=context,
+            using=self.template_engine,
+            **response_kwargs
+        )
+
+    def entrypoint(self, **kwargs):
+        pass
+
+
+class ExecuteTemplates(ExecutionView):
     template_name = "execute_template.html"
 
     def get_settings(self):
@@ -139,12 +156,13 @@ class ExecuteTemplates(TemplateView):
 
 
     def export_bibliographies(self):
-
+        r = []
         for bib in proposal.models.Bibliography.objects.filter(filename__endswith=".bib"):
             """TODO: so far, only handle bibtex files"""
             with open(os.path.join(self.latex_dir, bib.filename), 'w') as fp:
                 fp.write(bib.bibliography)
-
+            r.append({'obj': {'id': bib.id, 'name': bib.name}, 'result': "written to disk"})
+        return r
 
     def execute_template(self, template, jh, dir=""):
         # print("running: {}".format(template.name))
@@ -184,7 +202,7 @@ class ExecuteTemplates(TemplateView):
                       'w') as fp:
                 fp.write(tb.textblock)
 
-            r.append({'obj': tb, 'result': "written to disk"})
+            r.append({'obj': {'id': tb.id, 'name': tb.name}, 'result': "written to disk"})
 
         return r
 
@@ -222,20 +240,14 @@ class ExecuteTemplates(TemplateView):
             tmp = self.execute_template(
                 t, jh, dir=outdir)
 
-            r['results'].append({'obj': t, 'result': tmp})
+            r['results'].append({'obj': {'id': t.id, 'name': t.name}, 'result': tmp})
 
         ###############
 
         return r
 
-    def get_context_data(self, **kwargs):
-        r = self.entrypoint(**kwargs)
-        r.update(super().get_context_data(**kwargs))
 
-        return r
-
-
-class CreateLatex(TemplateView):
+class CreateLatex(ExecutionView):
 
     template_name = "create_latex.html"
 
@@ -290,14 +302,8 @@ class CreateLatex(TemplateView):
         self.get_settings()
         r = self.run_pandoc()
         return r
-
-    def get_context_data(self, **kwargs):
-        r = self.entrypoint(**kwargs)
-        r.update(super().get_context_data(**kwargs))
-
-        return r
     
-class RunPdflatex(TemplateView):
+class RunPdflatex(ExecutionView):
 
     template_name = "pdf.html"
 
@@ -324,7 +330,6 @@ class RunPdflatex(TemplateView):
 
         except Exception as e:
             r['exception'] += e.__str__()
-
         return r
 
     def bibtex(self, template):
@@ -332,13 +337,12 @@ class RunPdflatex(TemplateView):
 
     def pdflatex(self, template):
         """Run pdflatex once on given template"""
-
         return self.runcommand('pdflatex', template.name, '-interaction=nonstopmode')
 
 
     def pdflatex_template(self, template):
 
-        r = {'obj': template, 'warning': '', 'result': 'ok'}
+        r = {'obj': {'id': template.id, 'name': template.name}, 'warning': '', 'result': 'ok'}
 
         if not template.startpoint:
             r['warning'] += "This template is NOT a startpoint. Unlikely to produce useful results!"
@@ -412,11 +416,6 @@ class RunPdflatex(TemplateView):
         self.produce_tarball()
 
         return result
-
-    def get_context_data(self, **kwargs):
-        r = self.entrypoint(**kwargs)
-        r.update(super().get_context_data(**kwargs))
-        return r
 
 
 class getNewPdf(RedirectView):
