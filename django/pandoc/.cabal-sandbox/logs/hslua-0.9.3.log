@@ -1,0 +1,21 @@
+cabal: Entering directory '/tmp/cabal-tmp-17/hslua-0.9.3'
+Configuring hslua-0.9.3...
+Building hslua-0.9.3...
+Preprocessing library hslua-0.9.3...
+[ 1 of 12] Compiling Foreign.Lua.Api.Types ( dist/dist-sandbox-6923a179/build/Foreign/Lua/Api/Types.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Api/Types.o )
+[ 2 of 12] Compiling Foreign.Lua.Types.Lua ( src/Foreign/Lua/Types/Lua.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Types/Lua.o )
+[ 3 of 12] Compiling Foreign.Lua.Types.Error ( src/Foreign/Lua/Types/Error.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Types/Error.o )
+[ 4 of 12] Compiling Foreign.Lua.Api.RawBindings ( dist/dist-sandbox-6923a179/build/Foreign/Lua/Api/RawBindings.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Api/RawBindings.o )
+[ 5 of 12] Compiling Foreign.Lua.Api.Constants ( dist/dist-sandbox-6923a179/build/Foreign/Lua/Api/Constants.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Api/Constants.o )
+[ 6 of 12] Compiling Foreign.Lua.Api  ( src/Foreign/Lua/Api.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Api.o )
+[ 7 of 12] Compiling Foreign.Lua.Types.FromLuaStack ( src/Foreign/Lua/Types/FromLuaStack.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Types/FromLuaStack.o )
+[ 8 of 12] Compiling Foreign.Lua.Types.ToLuaStack ( src/Foreign/Lua/Types/ToLuaStack.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Types/ToLuaStack.o )
+[ 9 of 12] Compiling Foreign.Lua.Types ( src/Foreign/Lua/Types.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Types.o )
+[10 of 12] Compiling Foreign.Lua.Util ( src/Foreign/Lua/Util.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/Util.o )
+[11 of 12] Compiling Foreign.Lua.FunctionCalling ( src/Foreign/Lua/FunctionCalling.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua/FunctionCalling.o )
+[12 of 12] Compiling Foreign.Lua      ( src/Foreign/Lua.hs, dist/dist-sandbox-6923a179/build/Foreign/Lua.o )
+Creating package registration file: /tmp/pkgConf-hslua-0.9203350523629777560.3
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/hslua-0.9.3-598VWLgutrELvOKWsyG8D
+Registering hslua-0.9.3...
+cabal: Leaving directory '/tmp/cabal-tmp-17/hslua-0.9.3'

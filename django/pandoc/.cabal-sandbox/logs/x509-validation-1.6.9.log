@@ -1,0 +1,20 @@
+cabal: Entering directory '/tmp/cabal-tmp-8/x509-validation-1.6.9'
+Configuring x509-validation-1.6.9...
+Building x509-validation-1.6.9...
+Preprocessing library x509-validation-1.6.9...
+[1 of 5] Compiling Data.X509.Validation.Types ( Data/X509/Validation/Types.hs, dist/dist-sandbox-6923a179/build/Data/X509/Validation/Types.o )
+[2 of 5] Compiling Data.X509.Validation.Signature ( Data/X509/Validation/Signature.hs, dist/dist-sandbox-6923a179/build/Data/X509/Validation/Signature.o )
+[3 of 5] Compiling Data.X509.Validation.Fingerprint ( Data/X509/Validation/Fingerprint.hs, dist/dist-sandbox-6923a179/build/Data/X509/Validation/Fingerprint.o )
+[4 of 5] Compiling Data.X509.Validation.Cache ( Data/X509/Validation/Cache.hs, dist/dist-sandbox-6923a179/build/Data/X509/Validation/Cache.o )
+[5 of 5] Compiling Data.X509.Validation ( Data/X509/Validation.hs, dist/dist-sandbox-6923a179/build/Data/X509/Validation.o )
+
+Data/X509/Validation.hs:34:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+Creating package registration file:
+/tmp/pkgConf-x509-validation-1.614352181891135771559.9
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/x509-validation-1.6.9-AmXWJ22IKN31TVTNSzJfXW
+Registering x509-validation-1.6.9...
+cabal: Leaving directory '/tmp/cabal-tmp-8/x509-validation-1.6.9'

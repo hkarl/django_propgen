@@ -1,0 +1,17 @@
+cabal: Entering directory '/tmp/cabal-tmp-11/pem-0.2.2'
+Configuring pem-0.2.2...
+Building pem-0.2.2...
+Preprocessing library pem-0.2.2...
+[1 of 4] Compiling Data.PEM.Types   ( Data/PEM/Types.hs, dist/dist-sandbox-6923a179/build/Data/PEM/Types.o )
+[2 of 4] Compiling Data.PEM.Writer  ( Data/PEM/Writer.hs, dist/dist-sandbox-6923a179/build/Data/PEM/Writer.o )
+[3 of 4] Compiling Data.PEM.Parser  ( Data/PEM/Parser.hs, dist/dist-sandbox-6923a179/build/Data/PEM/Parser.o )
+[4 of 4] Compiling Data.PEM         ( Data/PEM.hs, dist/dist-sandbox-6923a179/build/Data/PEM.o )
+
+Data/PEM.hs:11:1: warning: [-Wtabs]
+    Tab character found here, and in one further location.
+    Please use spaces instead.
+Creating package registration file: /tmp/pkgConf-pem-0.2661761152474613996.2
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/pem-0.2.2-CkEwei5500yF2642aAaOAi
+Registering pem-0.2.2...
+cabal: Leaving directory '/tmp/cabal-tmp-11/pem-0.2.2'

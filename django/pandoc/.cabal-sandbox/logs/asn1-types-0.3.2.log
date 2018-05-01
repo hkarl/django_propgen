@@ -1,0 +1,20 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/asn1-types-0.3.2'
+Configuring asn1-types-0.3.2...
+Building asn1-types-0.3.2...
+Preprocessing library asn1-types-0.3.2...
+[1 of 6] Compiling Data.ASN1.Types.String ( Data/ASN1/Types/String.hs, dist/dist-sandbox-6923a179/build/Data/ASN1/Types/String.o )
+
+Data/ASN1/Types/String.hs:154:22: warning: [-Wname-shadowing]
+    This binding for ‘b’ shadows the existing binding
+      bound at Data/ASN1/Types/String.hs:151:13
+[2 of 6] Compiling Data.ASN1.Types.Lowlevel ( Data/ASN1/Types/Lowlevel.hs, dist/dist-sandbox-6923a179/build/Data/ASN1/Types/Lowlevel.o )
+[3 of 6] Compiling Data.ASN1.OID    ( Data/ASN1/OID.hs, dist/dist-sandbox-6923a179/build/Data/ASN1/OID.o )
+[4 of 6] Compiling Data.ASN1.BitArray ( Data/ASN1/BitArray.hs, dist/dist-sandbox-6923a179/build/Data/ASN1/BitArray.o )
+[5 of 6] Compiling Data.ASN1.Types  ( Data/ASN1/Types.hs, dist/dist-sandbox-6923a179/build/Data/ASN1/Types.o )
+[6 of 6] Compiling Data.ASN1.Pretty ( Data/ASN1/Pretty.hs, dist/dist-sandbox-6923a179/build/Data/ASN1/Pretty.o )
+Creating package registration file:
+/tmp/pkgConf-asn1-types-0.3952062949577721120.2
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/asn1-types-0.3.2-8q2rKYL0w3WGoYjDD4TZl6
+Registering asn1-types-0.3.2...
+cabal: Leaving directory '/tmp/cabal-tmp-7/asn1-types-0.3.2'

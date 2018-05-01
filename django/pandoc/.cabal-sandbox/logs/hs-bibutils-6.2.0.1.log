@@ -1,0 +1,16 @@
+cabal: Entering directory '/tmp/cabal-tmp-9/hs-bibutils-6.2.0.1'
+Configuring hs-bibutils-6.2.0.1...
+Building hs-bibutils-6.2.0.1...
+Preprocessing library hs-bibutils-6.2.0.1...
+Bibutils.hsc:442:0: warning: "hsc_alignment" redefined
+In file included from dist/dist-sandbox-6923a179/build/Text/Bibutils_hsc_make.c:1:0:
+/opt/ghc/8.0.2/lib/ghc-8.0.2/template-hsc.h:88:0: note: this is the location of the previous definition
+ #define hsc_alignment(t...) \
+ ^
+[1 of 1] Compiling Text.Bibutils    ( dist/dist-sandbox-6923a179/build/Text/Bibutils.hs, dist/dist-sandbox-6923a179/build/Text/Bibutils.o )
+Creating package registration file:
+/tmp/pkgConf-hs-bibutils-6.2.0982906996135497281.1
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/hs-bibutils-6.2.0.1-91MujsjQrME9UbptwS6xXm
+Registering hs-bibutils-6.2.0.1...
+cabal: Leaving directory '/tmp/cabal-tmp-9/hs-bibutils-6.2.0.1'

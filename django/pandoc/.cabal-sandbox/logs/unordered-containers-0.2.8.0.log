@@ -1,0 +1,18 @@
+cabal: Entering directory '/tmp/cabal-tmp-14/unordered-containers-0.2.8.0'
+Configuring unordered-containers-0.2.8.0...
+Building unordered-containers-0.2.8.0...
+Preprocessing library unordered-containers-0.2.8.0...
+[1 of 8] Compiling Data.HashMap.UnsafeShift ( Data/HashMap/UnsafeShift.hs, dist/dist-sandbox-6923a179/build/Data/HashMap/UnsafeShift.o )
+[2 of 8] Compiling Data.HashMap.Unsafe ( Data/HashMap/Unsafe.hs, dist/dist-sandbox-6923a179/build/Data/HashMap/Unsafe.o )
+[3 of 8] Compiling Data.HashMap.PopCount ( Data/HashMap/PopCount.hs, dist/dist-sandbox-6923a179/build/Data/HashMap/PopCount.o )
+[4 of 8] Compiling Data.HashMap.Array ( Data/HashMap/Array.hs, dist/dist-sandbox-6923a179/build/Data/HashMap/Array.o )
+[5 of 8] Compiling Data.HashMap.Base ( Data/HashMap/Base.hs, dist/dist-sandbox-6923a179/build/Data/HashMap/Base.o )
+[6 of 8] Compiling Data.HashMap.Lazy ( Data/HashMap/Lazy.hs, dist/dist-sandbox-6923a179/build/Data/HashMap/Lazy.o )
+[7 of 8] Compiling Data.HashSet     ( Data/HashSet.hs, dist/dist-sandbox-6923a179/build/Data/HashSet.o )
+[8 of 8] Compiling Data.HashMap.Strict ( Data/HashMap/Strict.hs, dist/dist-sandbox-6923a179/build/Data/HashMap/Strict.o )
+Creating package registration file:
+/tmp/pkgConf-unordered-containers-0.2.8861109485659639006.0
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/unordered-containers-0.2.8.0-H1iMjkTgA5F4E1FFSLMKc5
+Registering unordered-containers-0.2.8.0...
+cabal: Leaving directory '/tmp/cabal-tmp-14/unordered-containers-0.2.8.0'

@@ -1,0 +1,36 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/x509-store-1.6.5'
+Configuring x509-store-1.6.5...
+Building x509-store-1.6.5...
+Preprocessing library x509-store-1.6.5...
+[1 of 3] Compiling Data.X509.Memory ( Data/X509/Memory.hs, dist/dist-sandbox-6923a179/build/Data/X509/Memory.o )
+[2 of 3] Compiling Data.X509.File   ( Data/X509/File.hs, dist/dist-sandbox-6923a179/build/Data/X509/File.o )
+
+Data/X509/File.hs:6:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Data/X509/File.hs:8:1: warning: [-Wunused-imports]
+    The import of ‘Data.ASN1.BinaryEncoding’ is redundant
+      except perhaps to import instances from ‘Data.ASN1.BinaryEncoding’
+    To import instances alone, use: import Data.ASN1.BinaryEncoding()
+
+Data/X509/File.hs:9:1: warning: [-Wunused-imports]
+    The import of ‘Data.ASN1.Encoding’ is redundant
+      except perhaps to import instances from ‘Data.ASN1.Encoding’
+    To import instances alone, use: import Data.ASN1.Encoding()
+
+Data/X509/File.hs:13:1: warning: [-Wunused-imports]
+    The import of ‘PEM(pemName)’ from module ‘Data.PEM’ is redundant
+[3 of 3] Compiling Data.X509.CertificateStore ( Data/X509/CertificateStore.hs, dist/dist-sandbox-6923a179/build/Data/X509/CertificateStore.o )
+
+Data/X509/CertificateStore.hs:13:1: warning: [-Wunused-imports]
+    The import of ‘Data.Monoid’ is redundant
+      except perhaps to import instances from ‘Data.Monoid’
+    To import instances alone, use: import Data.Monoid()
+Creating package registration file:
+/tmp/pkgConf-x509-store-1.67334509071487053959.5
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/x509-store-1.6.5-2XZxPezwL6b3PSZKbuY67B
+Registering x509-store-1.6.5...
+cabal: Leaving directory '/tmp/cabal-tmp-7/x509-store-1.6.5'

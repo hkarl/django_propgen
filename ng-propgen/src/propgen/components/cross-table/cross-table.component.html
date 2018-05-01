@@ -1,0 +1,20 @@
+<ng-container *ngIf="data.rows.length > 0 && data.cols.length > 0">
+  <ngx-datatable
+    class="material"
+    [rows]="values"
+    [scrollbarH]="true"
+    [scrollbarV]="true"
+    [headerHeight]="50"
+    [rowHeight]="50"
+    [columnMode]="'force'"
+    [reorderable]="false">
+    <ngx-datatable-column [name]="tableName" prop="name"></ngx-datatable-column>
+    <ngx-datatable-column *ngFor="let col of data.cols" [name]="col.title" [prop]="col.title">
+      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+        <mat-form-field style="margin-top: -20px">
+          <input matInput [value]="value" (blur)="onBlur($event, rowIndex, col)"/>
+        </mat-form-field>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</ng-container>

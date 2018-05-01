@@ -1,0 +1,31 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/texmath-0.10.1'
+Configuring texmath-0.10.1...
+Building texmath-0.10.1...
+Preprocessing library texmath-0.10.1...
+[ 1 of 21] Compiling Text.TeXMath.Unicode.ToASCII ( src/Text/TeXMath/Unicode/ToASCII.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Unicode/ToASCII.o )
+[ 2 of 21] Compiling Text.TeXMath.Unicode.Fonts ( src/Text/TeXMath/Unicode/Fonts.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Unicode/Fonts.o )
+[ 3 of 21] Compiling Text.TeXMath.Types ( src/Text/TeXMath/Types.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Types.o )
+[ 4 of 21] Compiling Text.TeXMath.Unicode.ToUnicode ( src/Text/TeXMath/Unicode/ToUnicode.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Unicode/ToUnicode.o )
+[ 5 of 21] Compiling Text.TeXMath.Writers.OMML ( src/Text/TeXMath/Writers/OMML.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Writers/OMML.o )
+[ 6 of 21] Compiling Text.TeXMath.TeX ( src/Text/TeXMath/TeX.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/TeX.o )
+[ 7 of 21] Compiling Text.TeXMath.Shared ( src/Text/TeXMath/Shared.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Shared.o )
+[ 8 of 21] Compiling Text.TeXMath.Unicode.ToTeX ( src/Text/TeXMath/Unicode/ToTeX.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Unicode/ToTeX.o )
+[ 9 of 21] Compiling Text.TeXMath.Writers.Eqn ( src/Text/TeXMath/Writers/Eqn.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Writers/Eqn.o )
+[10 of 21] Compiling Text.TeXMath.Writers.Pandoc ( src/Text/TeXMath/Writers/Pandoc.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Writers/Pandoc.o )
+[11 of 21] Compiling Text.TeXMath.Writers.TeX ( src/Text/TeXMath/Writers/TeX.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Writers/TeX.o )
+[12 of 21] Compiling Text.TeXMath.Readers.TeX.Macros ( src/Text/TeXMath/Readers/TeX/Macros.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Readers/TeX/Macros.o )
+[13 of 21] Compiling Text.TeXMath.Readers.TeX ( src/Text/TeXMath/Readers/TeX.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Readers/TeX.o )
+[14 of 21] Compiling Text.TeXMath.Readers.OMML ( src/Text/TeXMath/Readers/OMML.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Readers/OMML.o )
+[15 of 21] Compiling Text.TeXMath.Readers.MathML.MMLDict ( src/Text/TeXMath/Readers/MathML/MMLDict.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Readers/MathML/MMLDict.o )
+[16 of 21] Compiling Text.TeXMath.Writers.MathML ( src/Text/TeXMath/Writers/MathML.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Writers/MathML.o )
+[17 of 21] Compiling Text.TeXMath.Readers.MathML.EntityMap ( src/Text/TeXMath/Readers/MathML/EntityMap.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Readers/MathML/EntityMap.o )
+[18 of 21] Compiling Text.TeXMath.Compat ( src/Text/TeXMath/Compat.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Compat.o )
+[19 of 21] Compiling Text.TeXMath.Readers.MathML ( src/Text/TeXMath/Readers/MathML.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath/Readers/MathML.o )
+[20 of 21] Compiling Text.TeXMath     ( src/Text/TeXMath.hs, dist/dist-sandbox-6923a179/build/Text/TeXMath.o )
+[21 of 21] Compiling Paths_texmath    ( dist/dist-sandbox-6923a179/build/autogen/Paths_texmath.hs, dist/dist-sandbox-6923a179/build/Paths_texmath.o )
+Creating package registration file:
+/tmp/pkgConf-texmath-0.1014122776852033669086.1
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/texmath-0.10.1-L1xLqQS6DfD5U7XurNPx2N
+Registering texmath-0.10.1...
+cabal: Leaving directory '/tmp/cabal-tmp-7/texmath-0.10.1'

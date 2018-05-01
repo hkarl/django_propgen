@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@swimlane/ngx-datatable/release/index.css";
+@import "~@swimlane/ngx-datatable/release/themes/material.css";
+@import "~@swimlane/ngx-datatable/release/assets/icons.css";
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * > * {
+  width: 100%;
+}
+
+.form-container > * {
+  margin-bottom: 1.25em;
+}
+.form-container > button {
+  margin-top: 0.5em;
+}

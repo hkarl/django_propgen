@@ -1,0 +1,51 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/conduit-extra-1.2.3.1'
+Configuring conduit-extra-1.2.3.1...
+Building conduit-extra-1.2.3.1...
+Preprocessing library conduit-extra-1.2.3.1...
+[ 1 of 14] Compiling Data.Conduit.Zlib ( Data/Conduit/Zlib.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Zlib.o )
+[ 2 of 14] Compiling Data.Conduit.Text ( Data/Conduit/Text.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Text.o )
+[ 3 of 14] Compiling Data.Conduit.Network.UDP ( Data/Conduit/Network/UDP.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Network/UDP.o )
+[ 4 of 14] Compiling Data.Conduit.Network ( Data/Conduit/Network.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Network.o )
+[ 5 of 14] Compiling Data.Conduit.Network.Unix ( Data/Conduit/Network/Unix.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Network/Unix.o )
+[ 6 of 14] Compiling Data.Conduit.Lazy ( Data/Conduit/Lazy.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Lazy.o )
+[ 7 of 14] Compiling Data.Conduit.Foldl ( Data/Conduit/Foldl.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Foldl.o )
+[ 8 of 14] Compiling Data.Conduit.Filesystem ( Data/Conduit/Filesystem.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Filesystem.o )
+[ 9 of 14] Compiling Data.Conduit.ByteString.Builder ( Data/Conduit/ByteString/Builder.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/ByteString/Builder.o )
+[10 of 14] Compiling Data.Conduit.Blaze ( Data/Conduit/Blaze.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Blaze.o )
+[11 of 14] Compiling Data.Conduit.Binary ( Data/Conduit/Binary.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Binary.o )
+
+Data/Conduit/Binary.hs:100:1: warning: [-Wunused-imports]
+    The qualified import of ‘Data.ByteString.Builder’ is redundant
+      except perhaps to import instances from ‘Data.ByteString.Builder’
+    To import instances alone, use: import Data.ByteString.Builder()
+
+Data/Conduit/Binary.hs:537:28: warning: [-Wdeprecations]
+    In the use of ‘inlinePerformIO’
+    (imported from Data.ByteString.Internal):
+    Deprecated: "If you think you know what you are doing, use 'unsafePerformIO'. If you are sure you know what you are doing, use 'unsafeDupablePerformIO'. If you enjoy sharing an address space with a malevolent agent of chaos, try 'accursedUnutterablePerformIO'."
+
+Data/Conduit/Binary.hs:539:20: warning: [-Wdeprecations]
+    In the use of ‘inlinePerformIO’
+    (imported from Data.ByteString.Internal):
+    Deprecated: "If you think you know what you are doing, use 'unsafePerformIO'. If you are sure you know what you are doing, use 'unsafeDupablePerformIO'. If you enjoy sharing an address space with a malevolent agent of chaos, try 'accursedUnutterablePerformIO'."
+
+Data/Conduit/Binary.hs:590:33: warning: [-Wname-shadowing]
+    This binding for ‘bs’ shadows the existing binding
+      bound at Data/Conduit/Binary.hs:582:18
+
+Data/Conduit/Binary.hs:604:36: warning: [-Wdeprecations]
+    In the use of ‘inlinePerformIO’
+    (imported from Data.ByteString.Internal):
+    Deprecated: "If you think you know what you are doing, use 'unsafePerformIO'. If you are sure you know what you are doing, use 'unsafeDupablePerformIO'. If you enjoy sharing an address space with a malevolent agent of chaos, try 'accursedUnutterablePerformIO'."
+[12 of 14] Compiling Data.Conduit.Process ( Data/Conduit/Process.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Process.o )
+[13 of 14] Compiling Data.Conduit.Process.Typed ( Data/Conduit/Process/Typed.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Process/Typed.o )
+[14 of 14] Compiling Data.Conduit.Attoparsec ( Data/Conduit/Attoparsec.hs, dist/dist-sandbox-6923a179/build/Data/Conduit/Attoparsec.o )
+
+Data/Conduit/Attoparsec.hs:79:5: warning: [-Wunused-top-binds]
+    Defined but not used: ‘notEmpty’
+Creating package registration file:
+/tmp/pkgConf-conduit-extra-1.2.31129566413184803526.1
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/conduit-extra-1.2.3.1-8Ed1dR0r3CtD9bBSVKd7fX
+Registering conduit-extra-1.2.3.1...
+cabal: Leaving directory '/tmp/cabal-tmp-7/conduit-extra-1.2.3.1'

@@ -1,0 +1,15 @@
+cabal: Entering directory '/tmp/cabal-tmp-10/scientific-0.3.5.2'
+Configuring scientific-0.3.5.2...
+Building scientific-0.3.5.2...
+Preprocessing library scientific-0.3.5.2...
+[1 of 5] Compiling Utils            ( src/Utils.hs, dist/dist-sandbox-6923a179/build/Utils.o )
+[2 of 5] Compiling GHC.Integer.Compat ( src/GHC/Integer/Compat.hs, dist/dist-sandbox-6923a179/build/GHC/Integer/Compat.o )
+[3 of 5] Compiling Data.Scientific  ( src/Data/Scientific.hs, dist/dist-sandbox-6923a179/build/Data/Scientific.o )
+[4 of 5] Compiling Data.Text.Lazy.Builder.Scientific ( src/Data/Text/Lazy/Builder/Scientific.hs, dist/dist-sandbox-6923a179/build/Data/Text/Lazy/Builder/Scientific.o )
+[5 of 5] Compiling Data.ByteString.Builder.Scientific ( src/Data/ByteString/Builder/Scientific.hs, dist/dist-sandbox-6923a179/build/Data/ByteString/Builder/Scientific.o )
+Creating package registration file:
+/tmp/pkgConf-scientific-0.3.51502781486703550253.2
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/scientific-0.3.5.2-GgY2CrmcdGYHAEjLt67uGP
+Registering scientific-0.3.5.2...
+cabal: Leaving directory '/tmp/cabal-tmp-10/scientific-0.3.5.2'

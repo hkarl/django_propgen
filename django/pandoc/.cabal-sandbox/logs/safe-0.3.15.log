@@ -1,0 +1,15 @@
+cabal: Entering directory '/tmp/cabal-tmp-27/safe-0.3.15'
+Configuring safe-0.3.15...
+Building safe-0.3.15...
+Preprocessing library safe-0.3.15...
+[1 of 5] Compiling Safe.Partial     ( Safe/Partial.hs, dist/dist-sandbox-6923a179/build/Safe/Partial.o )
+[2 of 5] Compiling Safe.Util        ( Safe/Util.hs, dist/dist-sandbox-6923a179/build/Safe/Util.o )
+[3 of 5] Compiling Safe.Foldable    ( Safe/Foldable.hs, dist/dist-sandbox-6923a179/build/Safe/Foldable.o )
+[4 of 5] Compiling Safe.Exact       ( Safe/Exact.hs, dist/dist-sandbox-6923a179/build/Safe/Exact.o )
+[5 of 5] Compiling Safe             ( Safe.hs, dist/dist-sandbox-6923a179/build/Safe.o )
+Creating package registration file:
+/tmp/pkgConf-safe-0.312951663421057467587.15
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/safe-0.3.15-2Yd45VWFfdcKqKyispOifY
+Registering safe-0.3.15...
+cabal: Leaving directory '/tmp/cabal-tmp-27/safe-0.3.15'

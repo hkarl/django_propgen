@@ -1,0 +1,7 @@
+<h1 *ngIf="title" class="mat-headline">Adding or editing {{title}}</h1>
+<mat-spinner style="margin: auto" *ngIf="!enabled"></mat-spinner>
+<div class="form-container">
+  <form [formGroup]="formGroup" #propertyContainer></form>
+  <button *ngIf="!readonly" [disabled]="!enabled || formGroup.invalid" mat-raised-button class="mat-primary" (click)="onSaveClick()">Save</button>
+  <button mat-raised-button (click)="onCancelClick()">Back</button>
+</div>

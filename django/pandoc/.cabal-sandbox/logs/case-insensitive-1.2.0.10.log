@@ -1,0 +1,13 @@
+cabal: Entering directory '/tmp/cabal-tmp-11/case-insensitive-1.2.0.10'
+Configuring case-insensitive-1.2.0.10...
+Building case-insensitive-1.2.0.10...
+Preprocessing library case-insensitive-1.2.0.10...
+[1 of 3] Compiling Data.CaseInsensitive.Internal ( Data/CaseInsensitive/Internal.hs, dist/dist-sandbox-6923a179/build/Data/CaseInsensitive/Internal.o )
+[2 of 3] Compiling Data.CaseInsensitive.Unsafe ( Data/CaseInsensitive/Unsafe.hs, dist/dist-sandbox-6923a179/build/Data/CaseInsensitive/Unsafe.o )
+[3 of 3] Compiling Data.CaseInsensitive ( Data/CaseInsensitive.hs, dist/dist-sandbox-6923a179/build/Data/CaseInsensitive.o )
+Creating package registration file:
+/tmp/pkgConf-case-insensitive-1.2.07653267172143124030.10
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/case-insensitive-1.2.0.10-LHbYtwMTiwHHSfpa1J1iBj
+Registering case-insensitive-1.2.0.10...
+cabal: Leaving directory '/tmp/cabal-tmp-11/case-insensitive-1.2.0.10'

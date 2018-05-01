@@ -1,0 +1,17 @@
+cabal: Entering directory '/tmp/cabal-tmp-23/Glob-0.9.1'
+Configuring Glob-0.9.1...
+Building Glob-0.9.1...
+Preprocessing library Glob-0.9.1...
+[1 of 7] Compiling System.FilePath.Glob.Utils ( System/FilePath/Glob/Utils.hs, dist/dist-sandbox-6923a179/build/System/FilePath/Glob/Utils.o )
+[2 of 7] Compiling System.FilePath.Glob.Base ( System/FilePath/Glob/Base.hs, dist/dist-sandbox-6923a179/build/System/FilePath/Glob/Base.o )
+[3 of 7] Compiling System.FilePath.Glob.Match ( System/FilePath/Glob/Match.hs, dist/dist-sandbox-6923a179/build/System/FilePath/Glob/Match.o )
+[4 of 7] Compiling System.FilePath.Glob.Directory ( System/FilePath/Glob/Directory.hs, dist/dist-sandbox-6923a179/build/System/FilePath/Glob/Directory.o )
+[5 of 7] Compiling System.FilePath.Glob.Primitive ( System/FilePath/Glob/Primitive.hs, dist/dist-sandbox-6923a179/build/System/FilePath/Glob/Primitive.o )
+[6 of 7] Compiling System.FilePath.Glob.Simplify ( System/FilePath/Glob/Simplify.hs, dist/dist-sandbox-6923a179/build/System/FilePath/Glob/Simplify.o )
+[7 of 7] Compiling System.FilePath.Glob ( System/FilePath/Glob.hs, dist/dist-sandbox-6923a179/build/System/FilePath/Glob.o )
+Creating package registration file:
+/tmp/pkgConf-Glob-0.917483496141276673168.1
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/Glob-0.9.1-2X2SRvIetn4HCahw8exDuk
+Registering Glob-0.9.1...
+cabal: Leaving directory '/tmp/cabal-tmp-23/Glob-0.9.1'

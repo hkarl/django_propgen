@@ -1,0 +1,120 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/tls-1.4.0'
+Configuring tls-1.4.0...
+Building tls-1.4.0...
+Preprocessing library tls-1.4.0...
+[ 1 of 52] Compiling Network.TLS.X509 ( Network/TLS/X509.hs, dist/dist-sandbox-6923a179/build/Network/TLS/X509.o )
+[ 2 of 52] Compiling Network.TLS.Util.Serialization ( Network/TLS/Util/Serialization.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Util/Serialization.o )
+[ 3 of 52] Compiling Network.TLS.Util.ASN1 ( Network/TLS/Util/ASN1.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Util/ASN1.o )
+[ 4 of 52] Compiling Network.TLS.Util ( Network/TLS/Util.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Util.o )
+[ 5 of 52] Compiling Network.TLS.Types ( Network/TLS/Types.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Types.o )
+[ 6 of 52] Compiling Network.TLS.Session ( Network/TLS/Session.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Session.o )
+[ 7 of 52] Compiling Network.TLS.RNG  ( Network/TLS/RNG.hs, dist/dist-sandbox-6923a179/build/Network/TLS/RNG.o )
+[ 8 of 52] Compiling Network.TLS.Measurement ( Network/TLS/Measurement.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Measurement.o )
+[ 9 of 52] Compiling Network.TLS.Imports ( Network/TLS/Imports.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Imports.o )
+[10 of 52] Compiling Network.TLS.ErrT ( Network/TLS/ErrT.hs, dist/dist-sandbox-6923a179/build/Network/TLS/ErrT.o )
+[11 of 52] Compiling Network.TLS.Crypto.Types ( Network/TLS/Crypto/Types.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Crypto/Types.o )
+[12 of 52] Compiling Network.TLS.Crypto.DH ( Network/TLS/Crypto/DH.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Crypto/DH.o )
+[13 of 52] Compiling Network.TLS.Extra.FFDHE ( Network/TLS/Extra/FFDHE.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Extra/FFDHE.o )
+[14 of 52] Compiling Network.TLS.Crypto.IES ( Network/TLS/Crypto/IES.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Crypto/IES.o )
+[15 of 52] Compiling Network.TLS.Crypto ( Network/TLS/Crypto.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Crypto.o )
+[16 of 52] Compiling Network.TLS.MAC  ( Network/TLS/MAC.hs, dist/dist-sandbox-6923a179/build/Network/TLS/MAC.o )
+[17 of 52] Compiling Network.TLS.Struct ( Network/TLS/Struct.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Struct.o )
+[18 of 52] Compiling Network.TLS.Hooks ( Network/TLS/Hooks.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Hooks.o )
+[19 of 52] Compiling Network.TLS.Wire ( Network/TLS/Wire.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Wire.o )
+[20 of 52] Compiling Network.TLS.Credentials ( Network/TLS/Credentials.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Credentials.o )
+
+Network/TLS/Credentials.hs:23:1: warning: [-Wunused-imports]
+    The import of ‘Data.Monoid’ is redundant
+      except perhaps to import instances from ‘Data.Monoid’
+    To import instances alone, use: import Data.Monoid()
+[21 of 52] Compiling Network.TLS.Compression ( Network/TLS/Compression.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Compression.o )
+[22 of 52] Compiling Network.TLS.Cipher ( Network/TLS/Cipher.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Cipher.o )
+[23 of 52] Compiling Network.TLS.Extra.Cipher ( Network/TLS/Extra/Cipher.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Extra/Cipher.o )
+[24 of 52] Compiling Network.TLS.Extra ( Network/TLS/Extra.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Extra.o )
+[25 of 52] Compiling Network.TLS.Cap  ( Network/TLS/Cap.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Cap.o )
+[26 of 52] Compiling Network.TLS.Packet ( Network/TLS/Packet.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Packet.o )
+
+Network/TLS/Packet.hs:62:1: warning: [-Wunused-imports]
+    The import of ‘Network.TLS.Imports’ is redundant
+      except perhaps to import instances from ‘Network.TLS.Imports’
+    To import instances alone, use: import Network.TLS.Imports()
+[27 of 52] Compiling Network.TLS.Extension ( Network/TLS/Extension.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Extension.o )
+
+Network/TLS/Extension.hs:40:1: warning: [-Wunused-imports]
+    The import of ‘Control.Monad’ is redundant
+      except perhaps to import instances from ‘Control.Monad’
+    To import instances alone, use: import Control.Monad()
+
+Network/TLS/Extension.hs:51:1: warning: [-Wunused-imports]
+    The import of ‘Network.TLS.Imports’ is redundant
+      except perhaps to import instances from ‘Network.TLS.Imports’
+    To import instances alone, use: import Network.TLS.Imports()
+[28 of 52] Compiling Network.TLS.Parameters ( Network/TLS/Parameters.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Parameters.o )
+[29 of 52] Compiling Network.TLS.State ( Network/TLS/State.hs, dist/dist-sandbox-6923a179/build/Network/TLS/State.o )
+
+Network/TLS/State.hs:54:1: warning: [-Wunused-imports]
+    The import of ‘Network.TLS.Imports’ is redundant
+      except perhaps to import instances from ‘Network.TLS.Imports’
+    To import instances alone, use: import Network.TLS.Imports()
+[30 of 52] Compiling Network.TLS.Record.State ( Network/TLS/Record/State.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Record/State.o )
+
+Network/TLS/Record/State.hs:28:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+[31 of 52] Compiling Network.TLS.Handshake.State ( Network/TLS/Handshake/State.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake/State.o )
+[32 of 52] Compiling Network.TLS.Record.Types ( Network/TLS/Record/Types.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Record/Types.o )
+[33 of 52] Compiling Network.TLS.Record.Disengage ( Network/TLS/Record/Disengage.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Record/Disengage.o )
+[34 of 52] Compiling Network.TLS.Record.Engage ( Network/TLS/Record/Engage.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Record/Engage.o )
+
+Network/TLS/Record/Engage.hs:16:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+[35 of 52] Compiling Network.TLS.Record ( Network/TLS/Record.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Record.o )
+[36 of 52] Compiling Network.TLS.Backend ( Network/TLS/Backend.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Backend.o )
+[37 of 52] Compiling Network.TLS.Context.Internal ( Network/TLS/Context/Internal.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Context/Internal.o )
+[38 of 52] Compiling Network.TLS.Handshake.Certificate ( Network/TLS/Handshake/Certificate.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake/Certificate.o )
+[39 of 52] Compiling Network.TLS.Handshake.Key ( Network/TLS/Handshake/Key.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake/Key.o )
+[40 of 52] Compiling Network.TLS.Handshake.Process ( Network/TLS/Handshake/Process.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake/Process.o )
+
+Network/TLS/Handshake/Process.hs:29:1: warning: [-Wunused-imports]
+    The import of ‘Network.TLS.Imports’ is redundant
+      except perhaps to import instances from ‘Network.TLS.Imports’
+    To import instances alone, use: import Network.TLS.Imports()
+[41 of 52] Compiling Network.TLS.Handshake.Signature ( Network/TLS/Handshake/Signature.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake/Signature.o )
+[42 of 52] Compiling Network.TLS.Receiving ( Network/TLS/Receiving.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Receiving.o )
+[43 of 52] Compiling Network.TLS.Sending ( Network/TLS/Sending.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Sending.o )
+
+Network/TLS/Sending.hs:13:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+[44 of 52] Compiling Network.TLS.IO   ( Network/TLS/IO.hs, dist/dist-sandbox-6923a179/build/Network/TLS/IO.o )
+[45 of 52] Compiling Network.TLS.Handshake.Common ( Network/TLS/Handshake/Common.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake/Common.o )
+[46 of 52] Compiling Network.TLS.Handshake.Client ( Network/TLS/Handshake/Client.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake/Client.o )
+
+Network/TLS/Handshake/Client.hs:24:1: warning: [-Wunused-imports]
+    The import of ‘Network.TLS.Imports’ is redundant
+      except perhaps to import instances from ‘Network.TLS.Imports’
+    To import instances alone, use: import Network.TLS.Imports()
+
+Network/TLS/Handshake/Client.hs:260:13: warning: [-Wincomplete-patterns]
+    Pattern match(es) are non-exhaustive
+    In a case alternative: Patterns not matched: (PrivKeyEC _)
+[47 of 52] Compiling Network.TLS.Handshake.Server ( Network/TLS/Handshake/Server.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake/Server.o )
+
+Network/TLS/Handshake/Server.hs:16:1: warning: [-Wunused-imports]
+    The import of ‘Network.TLS.Imports’ is redundant
+      except perhaps to import instances from ‘Network.TLS.Imports’
+    To import instances alone, use: import Network.TLS.Imports()
+[48 of 52] Compiling Network.TLS.Handshake ( Network/TLS/Handshake.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Handshake.o )
+[49 of 52] Compiling Network.TLS.Context ( Network/TLS/Context.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Context.o )
+[50 of 52] Compiling Network.TLS.Core ( Network/TLS/Core.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Core.o )
+[51 of 52] Compiling Network.TLS.Internal ( Network/TLS/Internal.hs, dist/dist-sandbox-6923a179/build/Network/TLS/Internal.o )
+[52 of 52] Compiling Network.TLS      ( Network/TLS.hs, dist/dist-sandbox-6923a179/build/Network/TLS.o )
+Creating package registration file: /tmp/pkgConf-tls-1.4972058109343945053.0
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/tls-1.4.0-LHswWf6EjGRIPTwLUc2A5x
+Registering tls-1.4.0...
+cabal: Leaving directory '/tmp/cabal-tmp-7/tls-1.4.0'

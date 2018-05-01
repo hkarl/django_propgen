@@ -1,0 +1,2 @@
+pandoc-citeproc -any
+pandoc-crossref -any

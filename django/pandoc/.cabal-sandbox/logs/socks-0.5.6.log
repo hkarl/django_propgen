@@ -1,0 +1,32 @@
+cabal: Entering directory '/tmp/cabal-tmp-21/socks-0.5.6'
+Configuring socks-0.5.6...
+Building socks-0.5.6...
+Preprocessing library socks-0.5.6...
+[1 of 7] Compiling Network.Socks5.Types ( Network/Socks5/Types.hs, dist/dist-sandbox-6923a179/build/Network/Socks5/Types.o )
+[2 of 7] Compiling Network.Socks5.Parse ( Network/Socks5/Parse.hs, dist/dist-sandbox-6923a179/build/Network/Socks5/Parse.o )
+[3 of 7] Compiling Network.Socks5.Wire ( Network/Socks5/Wire.hs, dist/dist-sandbox-6923a179/build/Network/Socks5/Wire.o )
+
+Network/Socks5/Wire.hs:15:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Network/Socks5/Wire.hs:23:1: warning: [-Wunused-imports]
+    The import of ‘Network.Socks5.Parse’ is redundant
+      except perhaps to import instances from ‘Network.Socks5.Parse’
+    To import instances alone, use: import Network.Socks5.Parse()
+[4 of 7] Compiling Network.Socks5.Conf ( Network/Socks5/Conf.hs, dist/dist-sandbox-6923a179/build/Network/Socks5/Conf.o )
+[5 of 7] Compiling Network.Socks5.Command ( Network/Socks5/Command.hs, dist/dist-sandbox-6923a179/build/Network/Socks5/Command.o )
+
+Network/Socks5/Command.hs:25:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+[6 of 7] Compiling Network.Socks5.Lowlevel ( Network/Socks5/Lowlevel.hs, dist/dist-sandbox-6923a179/build/Network/Socks5/Lowlevel.o )
+[7 of 7] Compiling Network.Socks5   ( Network/Socks5.hs, dist/dist-sandbox-6923a179/build/Network/Socks5.o )
+Creating package registration file:
+/tmp/pkgConf-socks-0.514731445001739000681.6
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/socks-0.5.6-ANhgBnvoaaP5CPBwFMOCYm
+Registering socks-0.5.6...
+cabal: Leaving directory '/tmp/cabal-tmp-21/socks-0.5.6'

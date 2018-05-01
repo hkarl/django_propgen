@@ -1,0 +1,14 @@
+cabal: Entering directory '/tmp/cabal-tmp-13/integer-logarithms-1.0.2'
+Configuring integer-logarithms-1.0.2...
+Building integer-logarithms-1.0.2...
+Preprocessing library integer-logarithms-1.0.2...
+[1 of 4] Compiling Math.NumberTheory.Powers.Natural ( src/Math/NumberTheory/Powers/Natural.hs, dist/dist-sandbox-6923a179/build/Math/NumberTheory/Powers/Natural.o )
+[2 of 4] Compiling Math.NumberTheory.Powers.Integer ( src/Math/NumberTheory/Powers/Integer.hs, dist/dist-sandbox-6923a179/build/Math/NumberTheory/Powers/Integer.o )
+[3 of 4] Compiling GHC.Integer.Logarithms.Compat ( src/GHC/Integer/Logarithms/Compat.hs, dist/dist-sandbox-6923a179/build/GHC/Integer/Logarithms/Compat.o )
+[4 of 4] Compiling Math.NumberTheory.Logarithms ( src/Math/NumberTheory/Logarithms.hs, dist/dist-sandbox-6923a179/build/Math/NumberTheory/Logarithms.o )
+Creating package registration file:
+/tmp/pkgConf-integer-logarithms-1.01789376348502278611.2
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/integer-logarithms-1.0.2-IDuUvOgHWcrIzD9yrr4lsA
+Registering integer-logarithms-1.0.2...
+cabal: Leaving directory '/tmp/cabal-tmp-13/integer-logarithms-1.0.2'

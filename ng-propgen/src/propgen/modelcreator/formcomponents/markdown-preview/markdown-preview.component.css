@@ -1,0 +1,23 @@
+.md-preview-container {
+  display: flex;
+}
+
+.md-preview-input {
+  flex: 0 50%;
+}
+
+.md-preview-input-popout {
+  flex: 0 100%;
+}
+
+.md-preview {
+  flex: 0 50%;
+}
+.md-fullwidth {
+  width: 100%;
+}
+.md-minheight {
+  min-height: 20vh;
+  height: 100%;
+}
+

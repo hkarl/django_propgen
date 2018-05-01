@@ -1,0 +1,13 @@
+cabal: Entering directory '/tmp/cabal-tmp-12/data-accessor-transformers-0.2.1.7'
+Configuring data-accessor-transformers-0.2.1.7...
+Building data-accessor-transformers-0.2.1.7...
+Preprocessing library data-accessor-transformers-0.2.1.7...
+[1 of 3] Compiling Data.Accessor.Monad.Trans.State ( src/Data/Accessor/Monad/Trans/State.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Monad/Trans/State.o )
+[2 of 3] Compiling Data.Accessor.Monad.Trans.RWS ( src/Data/Accessor/Monad/Trans/RWS.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Monad/Trans/RWS.o )
+[3 of 3] Compiling Data.Accessor.Monad.Trans.Example ( src/Data/Accessor/Monad/Trans/Example.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Monad/Trans/Example.o )
+Creating package registration file:
+/tmp/pkgConf-data-accessor-transformers-0.2.11737518944282828202.7
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/data-accessor-transformers-0.2.1.7-6YP6JqsIeFrBCN7cotgZiz
+Registering data-accessor-transformers-0.2.1.7...
+cabal: Leaving directory '/tmp/cabal-tmp-12/data-accessor-transformers-0.2.1.7'

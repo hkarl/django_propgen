@@ -1,0 +1,17 @@
+cabal: Entering directory '/tmp/cabal-tmp-9/pandoc-types-1.17.3'
+Configuring pandoc-types-1.17.3...
+Building pandoc-types-1.17.3...
+Preprocessing library pandoc-types-1.17.3...
+[1 of 7] Compiling Text.Pandoc.Generic ( Text/Pandoc/Generic.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/Generic.o )
+[2 of 7] Compiling Paths_pandoc_types ( dist/dist-sandbox-6923a179/build/autogen/Paths_pandoc_types.hs, dist/dist-sandbox-6923a179/build/Paths_pandoc_types.o )
+[3 of 7] Compiling Text.Pandoc.Definition ( Text/Pandoc/Definition.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/Definition.o )
+[4 of 7] Compiling Text.Pandoc.Builder ( Text/Pandoc/Builder.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/Builder.o )
+[5 of 7] Compiling Text.Pandoc.Arbitrary ( Text/Pandoc/Arbitrary.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/Arbitrary.o )
+[6 of 7] Compiling Text.Pandoc.Walk ( Text/Pandoc/Walk.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/Walk.o )
+[7 of 7] Compiling Text.Pandoc.JSON ( Text/Pandoc/JSON.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/JSON.o )
+Creating package registration file:
+/tmp/pkgConf-pandoc-types-1.17672139932226723382.3
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/pandoc-types-1.17.3-I7cvwj6ulpsJ6SoN3dGieV
+Registering pandoc-types-1.17.3...
+cabal: Leaving directory '/tmp/cabal-tmp-9/pandoc-types-1.17.3'

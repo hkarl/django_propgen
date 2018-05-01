@@ -1,0 +1,22 @@
+cabal: Entering directory '/tmp/cabal-tmp-8/base-unicode-symbols-0.2.2.4'
+Configuring base-unicode-symbols-0.2.2.4...
+Building base-unicode-symbols-0.2.2.4...
+Preprocessing library base-unicode-symbols-0.2.2.4...
+[ 1 of 12] Compiling Data.Ord.Unicode ( Data/Ord/Unicode.hs, dist/dist-sandbox-6923a179/build/Data/Ord/Unicode.o )
+[ 2 of 12] Compiling Data.Monoid.Unicode ( Data/Monoid/Unicode.hs, dist/dist-sandbox-6923a179/build/Data/Monoid/Unicode.o )
+[ 3 of 12] Compiling Data.List.Unicode ( Data/List/Unicode.hs, dist/dist-sandbox-6923a179/build/Data/List/Unicode.o )
+[ 4 of 12] Compiling Data.Function.Unicode ( Data/Function/Unicode.hs, dist/dist-sandbox-6923a179/build/Data/Function/Unicode.o )
+[ 5 of 12] Compiling Data.Foldable.Unicode ( Data/Foldable/Unicode.hs, dist/dist-sandbox-6923a179/build/Data/Foldable/Unicode.o )
+[ 6 of 12] Compiling Data.Eq.Unicode  ( Data/Eq/Unicode.hs, dist/dist-sandbox-6923a179/build/Data/Eq/Unicode.o )
+[ 7 of 12] Compiling Data.Bool.Unicode ( Data/Bool/Unicode.hs, dist/dist-sandbox-6923a179/build/Data/Bool/Unicode.o )
+[ 8 of 12] Compiling Prelude.Unicode  ( Prelude/Unicode.hs, dist/dist-sandbox-6923a179/build/Prelude/Unicode.o )
+[ 9 of 12] Compiling Control.Monad.Unicode ( Control/Monad/Unicode.hs, dist/dist-sandbox-6923a179/build/Control/Monad/Unicode.o )
+[10 of 12] Compiling Control.Category.Unicode ( Control/Category/Unicode.hs, dist/dist-sandbox-6923a179/build/Control/Category/Unicode.o )
+[11 of 12] Compiling Control.Arrow.Unicode ( Control/Arrow/Unicode.hs, dist/dist-sandbox-6923a179/build/Control/Arrow/Unicode.o )
+[12 of 12] Compiling Control.Applicative.Unicode ( Control/Applicative/Unicode.hs, dist/dist-sandbox-6923a179/build/Control/Applicative/Unicode.o )
+Creating package registration file:
+/tmp/pkgConf-base-unicode-symbols-0.2.26281750111656478042.4
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/base-unicode-symbols-0.2.2.4-LJZ89aUbdoNKMBk8U5mv47
+Registering base-unicode-symbols-0.2.2.4...
+cabal: Leaving directory '/tmp/cabal-tmp-8/base-unicode-symbols-0.2.2.4'

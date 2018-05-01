@@ -1,0 +1,16 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/asn1-parse-0.9.4'
+Configuring asn1-parse-0.9.4...
+Building asn1-parse-0.9.4...
+Preprocessing library asn1-parse-0.9.4...
+[1 of 1] Compiling Data.ASN1.Parse  ( Data/ASN1/Parse.hs, dist/dist-sandbox-6923a179/build/Data/ASN1/Parse.o )
+
+Data/ASN1/Parse.hs:30:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+Creating package registration file:
+/tmp/pkgConf-asn1-parse-0.912425610411581539848.4
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/asn1-parse-0.9.4-EA7JDGEvmNB4UzOHr9E2fl
+Registering asn1-parse-0.9.4...
+cabal: Leaving directory '/tmp/cabal-tmp-7/asn1-parse-0.9.4'

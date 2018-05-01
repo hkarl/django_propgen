@@ -1,0 +1,23 @@
+cabal: Entering directory '/tmp/cabal-tmp-21/tagsoup-0.14.2'
+Configuring tagsoup-0.14.2...
+Building tagsoup-0.14.2...
+Preprocessing library tagsoup-0.14.2...
+[ 1 of 13] Compiling Text.StringLike  ( src/Text/StringLike.hs, dist/dist-sandbox-6923a179/build/Text/StringLike.o )
+[ 2 of 13] Compiling Text.HTML.TagSoup.Type ( src/Text/HTML/TagSoup/Type.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Type.o )
+[ 3 of 13] Compiling Text.HTML.TagSoup.Match ( src/Text/HTML/TagSoup/Match.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Match.o )
+[ 4 of 13] Compiling Text.HTML.TagSoup.Entity ( src/Text/HTML/TagSoup/Entity.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Entity.o )
+[ 5 of 13] Compiling Text.HTML.TagSoup.Options ( src/Text/HTML/TagSoup/Options.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Options.o )
+[ 6 of 13] Compiling Text.HTML.TagSoup.Implementation ( src/Text/HTML/TagSoup/Implementation.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Implementation.o )
+[ 7 of 13] Compiling Text.HTML.TagSoup.Specification ( src/Text/HTML/TagSoup/Specification.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Specification.o )
+[ 8 of 13] Compiling Text.HTML.TagSoup.Manual ( src/Text/HTML/TagSoup/Manual.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Manual.o )
+[ 9 of 13] Compiling Text.HTML.TagSoup.Generated ( src/Text/HTML/TagSoup/Generated.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Generated.o )
+[10 of 13] Compiling Text.HTML.TagSoup.Parser ( src/Text/HTML/TagSoup/Parser.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Parser.o )
+[11 of 13] Compiling Text.HTML.TagSoup.Render ( src/Text/HTML/TagSoup/Render.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Render.o )
+[12 of 13] Compiling Text.HTML.TagSoup ( src/Text/HTML/TagSoup.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup.o )
+[13 of 13] Compiling Text.HTML.TagSoup.Tree ( src/Text/HTML/TagSoup/Tree.hs, dist/dist-sandbox-6923a179/build/Text/HTML/TagSoup/Tree.o )
+Creating package registration file:
+/tmp/pkgConf-tagsoup-0.1412915540981655035325.2
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/tagsoup-0.14.2-ChOryKrg0WX1kDkjRko2Nr
+Registering tagsoup-0.14.2...
+cabal: Leaving directory '/tmp/cabal-tmp-21/tagsoup-0.14.2'

@@ -1,0 +1,15 @@
+cabal: Entering directory '/tmp/cabal-tmp-11/xml-types-0.3.6'
+Configuring xml-types-0.3.6...
+Building xml-types-0.3.6...
+Preprocessing library xml-types-0.3.6...
+[1 of 1] Compiling Data.XML.Types   ( lib/Data/XML/Types.hs, dist/dist-sandbox-6923a179/build/Data/XML/Types.o )
+
+lib/Data/XML/Types.hs:27:1: warning: [-Wtabs]
+    Tab character found here, and in 131 further locations.
+    Please use spaces instead.
+Creating package registration file:
+/tmp/pkgConf-xml-types-0.31497983152038664370.6
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/xml-types-0.3.6-Bd1wJXRup6g94DvsoqkpiL
+Registering xml-types-0.3.6...
+cabal: Leaving directory '/tmp/cabal-tmp-11/xml-types-0.3.6'

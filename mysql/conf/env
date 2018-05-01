@@ -1,0 +1,4 @@
+MYSQL_ROOT_PASSWORD=myrootpassword
+MYSQL_DATABASE=django_propgen
+MYSQL_USER=django_propgen
+MYSQL_PASSWORD=django_propgen

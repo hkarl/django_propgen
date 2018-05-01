@@ -1,0 +1,17 @@
+cabal: Entering directory '/tmp/cabal-tmp-8/http-types-0.11'
+Configuring http-types-0.11...
+Building http-types-0.11...
+Preprocessing library http-types-0.11...
+[1 of 7] Compiling Network.HTTP.Types.Version ( Network/HTTP/Types/Version.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Types/Version.o )
+[2 of 7] Compiling Network.HTTP.Types.URI ( Network/HTTP/Types/URI.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Types/URI.o )
+[3 of 7] Compiling Network.HTTP.Types.Status ( Network/HTTP/Types/Status.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Types/Status.o )
+[4 of 7] Compiling Network.HTTP.Types.QueryLike ( Network/HTTP/Types/QueryLike.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Types/QueryLike.o )
+[5 of 7] Compiling Network.HTTP.Types.Method ( Network/HTTP/Types/Method.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Types/Method.o )
+[6 of 7] Compiling Network.HTTP.Types.Header ( Network/HTTP/Types/Header.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Types/Header.o )
+[7 of 7] Compiling Network.HTTP.Types ( Network/HTTP/Types.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Types.o )
+Creating package registration file:
+/tmp/pkgConf-http-types-05542905961467963981.11
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/http-types-0.11-9vVEi3blIRqD7Ttzh4WCXP
+Registering http-types-0.11...
+cabal: Leaving directory '/tmp/cabal-tmp-8/http-types-0.11'

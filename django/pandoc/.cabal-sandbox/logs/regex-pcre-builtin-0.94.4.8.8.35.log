@@ -1,0 +1,30 @@
+cabal: Entering directory '/tmp/cabal-tmp-10/regex-pcre-builtin-0.94.4.8.8.35'
+Configuring regex-pcre-builtin-0.94.4.8.8.35...
+Building regex-pcre-builtin-0.94.4.8.8.35...
+Preprocessing library regex-pcre-builtin-0.94.4.8.8.35...
+[1 of 6] Compiling Text.Regex.PCRE.Wrap ( dist/dist-sandbox-6923a179/build/Text/Regex/PCRE/Wrap.hs, dist/dist-sandbox-6923a179/build/Text/Regex/PCRE/Wrap.o )
+
+Text/Regex/PCRE/Wrap.hsc:217:5: warning: [-Wunused-do-bind]
+    A do-notation statement discarded a result of type ‘CInt’
+    Suppress this warning by saying
+      ‘_ <- c_pcre_fullinfo pcre_ptr (nullPtr) pcreInfoCapturecount st’
+
+Text/Regex/PCRE/Wrap.hsc:340:5: warning: [-Wunused-do-bind]
+    A do-notation statement discarded a result of type ‘CInt’
+    Suppress this warning by saying
+      ‘_ <- c_pcre_config pcreConfigUtf8 ptrVal’
+[2 of 6] Compiling Text.Regex.PCRE.String ( Text/Regex/PCRE/String.hs, dist/dist-sandbox-6923a179/build/Text/Regex/PCRE/String.o )
+[3 of 6] Compiling Text.Regex.PCRE.Sequence ( Text/Regex/PCRE/Sequence.hs, dist/dist-sandbox-6923a179/build/Text/Regex/PCRE/Sequence.o )
+[4 of 6] Compiling Text.Regex.PCRE.ByteString ( Text/Regex/PCRE/ByteString.hs, dist/dist-sandbox-6923a179/build/Text/Regex/PCRE/ByteString.o )
+[5 of 6] Compiling Text.Regex.PCRE.ByteString.Lazy ( Text/Regex/PCRE/ByteString/Lazy.hs, dist/dist-sandbox-6923a179/build/Text/Regex/PCRE/ByteString/Lazy.o )
+[6 of 6] Compiling Text.Regex.PCRE  ( Text/Regex/PCRE.hs, dist/dist-sandbox-6923a179/build/Text/Regex/PCRE.o )
+
+Text/Regex/PCRE.hs:61:13: warning: [-Wdeprecations]
+    In the use of ‘versionTags’ (imported from Data.Version):
+    Deprecated: "See GHC ticket #2496"
+Creating package registration file:
+/tmp/pkgConf-regex-pcre-builtin-0.94.4.8.87163344711152645729.35
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/regex-pcre-builtin-0.94.4.8.8.35-Jd8og6J4na1HxszezwiC5H
+Registering regex-pcre-builtin-0.94.4.8.8.35...
+cabal: Leaving directory '/tmp/cabal-tmp-10/regex-pcre-builtin-0.94.4.8.8.35'

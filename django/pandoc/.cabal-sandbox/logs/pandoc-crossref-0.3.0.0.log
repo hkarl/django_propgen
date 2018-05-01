@@ -1,0 +1,34 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/pandoc-crossref-0.3.0.0'
+Configuring pandoc-crossref-0.3.0.0...
+Building pandoc-crossref-0.3.0.0...
+Preprocessing library pandoc-crossref-0.3.0.0...
+[ 1 of 18] Compiling Text.Pandoc.CrossRef.Util.PandocOrphans ( lib/Text/Pandoc/CrossRef/Util/PandocOrphans.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/PandocOrphans.o )
+[ 2 of 18] Compiling Text.Pandoc.CrossRef.References.Types ( lib/Text/Pandoc/CrossRef/References/Types.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/References/Types.o )
+[ 3 of 18] Compiling Text.Pandoc.CrossRef.Util.Util ( lib/Text/Pandoc/CrossRef/Util/Util.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/Util.o )
+[ 4 of 18] Compiling Text.Pandoc.CrossRef.Util.Meta ( lib/Text/Pandoc/CrossRef/Util/Meta.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/Meta.o )
+[ 5 of 18] Compiling Text.Pandoc.CrossRef.Util.CustomLabels ( lib/Text/Pandoc/CrossRef/Util/CustomLabels.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/CustomLabels.o )
+[ 6 of 18] Compiling Text.Pandoc.CrossRef.Util.Template ( lib/Text/Pandoc/CrossRef/Util/Template.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/Template.o )
+[ 7 of 18] Compiling Text.Pandoc.CrossRef.Util.Options ( lib/Text/Pandoc/CrossRef/Util/Options.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/Options.o )
+[ 8 of 18] Compiling Text.Pandoc.CrossRef.Util.CodeBlockCaptions ( lib/Text/Pandoc/CrossRef/Util/CodeBlockCaptions.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/CodeBlockCaptions.o )
+[ 9 of 18] Compiling Text.Pandoc.CrossRef.Util.Settings.Template ( lib/Text/Pandoc/CrossRef/Util/Settings/Template.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/Settings/Template.o )
+[10 of 18] Compiling Text.Pandoc.CrossRef.Util.Settings.Gen ( lib/Text/Pandoc/CrossRef/Util/Settings/Gen.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/Settings/Gen.o )
+[11 of 18] Compiling Text.Pandoc.CrossRef.Util.Settings ( lib/Text/Pandoc/CrossRef/Util/Settings.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/Settings.o )
+[12 of 18] Compiling Text.Pandoc.CrossRef.Util.ModifyMeta ( lib/Text/Pandoc/CrossRef/Util/ModifyMeta.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/Util/ModifyMeta.o )
+[13 of 18] Compiling Text.Pandoc.CrossRef.References.Refs ( lib/Text/Pandoc/CrossRef/References/Refs.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/References/Refs.o )
+[14 of 18] Compiling Text.Pandoc.CrossRef.References.List ( lib/Text/Pandoc/CrossRef/References/List.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/References/List.o )
+[15 of 18] Compiling Text.Pandoc.CrossRef.References.Blocks ( lib/Text/Pandoc/CrossRef/References/Blocks.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/References/Blocks.o )
+[16 of 18] Compiling Text.Pandoc.CrossRef.References ( lib/Text/Pandoc/CrossRef/References.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef/References.o )
+[17 of 18] Compiling Text.Pandoc.CrossRef ( lib/Text/Pandoc/CrossRef.hs, dist/dist-sandbox-6923a179/build/Text/Pandoc/CrossRef.o )
+[18 of 18] Compiling Paths_pandoc_crossref ( dist/dist-sandbox-6923a179/build/autogen/Paths_pandoc_crossref.hs, dist/dist-sandbox-6923a179/build/Paths_pandoc_crossref.o )
+Preprocessing executable 'pandoc-crossref' for pandoc-crossref-0.3.0.0...
+[1 of 3] Compiling Paths_pandoc_crossref ( dist/dist-sandbox-6923a179/build/autogen/Paths_pandoc_crossref.hs, dist/dist-sandbox-6923a179/build/pandoc-crossref/pandoc-crossref-tmp/Paths_pandoc_crossref.o )
+[2 of 3] Compiling ManData          ( src/ManData.hs, dist/dist-sandbox-6923a179/build/pandoc-crossref/pandoc-crossref-tmp/ManData.o )
+[3 of 3] Compiling Main             ( src/pandoc-crossref.hs, dist/dist-sandbox-6923a179/build/pandoc-crossref/pandoc-crossref-tmp/Main.o )
+Linking dist/dist-sandbox-6923a179/build/pandoc-crossref/pandoc-crossref ...
+Creating package registration file:
+/tmp/pkgConf-pandoc-crossref-0.3.016401703371663080928.0
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/pandoc-crossref-0.3.0.0-FwTVYZkqcZtLYNUScWyT0G
+Installing executable(s) in /pandoc/.cabal-sandbox/bin
+Registering pandoc-crossref-0.3.0.0...
+cabal: Leaving directory '/tmp/cabal-tmp-7/pandoc-crossref-0.3.0.0'

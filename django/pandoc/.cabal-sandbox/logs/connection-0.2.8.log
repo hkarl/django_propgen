@@ -1,0 +1,29 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/connection-0.2.8'
+Configuring connection-0.2.8...
+Building connection-0.2.8...
+Preprocessing library connection-0.2.8...
+[1 of 2] Compiling Network.Connection.Types ( Network/Connection/Types.hs, dist/dist-sandbox-6923a179/build/Network/Connection/Types.o )
+[2 of 2] Compiling Network.Connection ( Network/Connection.hs, dist/dist-sandbox-6923a179/build/Network/Connection.o )
+
+Network/Connection.hs:52:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Network/Connection.hs:101:1: warning: [-Wunused-top-binds]
+    Defined but not used: ‘connectionSessionManager’
+
+Network/Connection.hs:117:62: warning: [-Wdeprecations]
+    In the use of ‘ciphersuite_all’
+    (imported from Network.TLS.Extra, but defined in Network.TLS.Extra.Cipher):
+    "This ciphersuite list contains RC4. Use ciphersuite_strong or ciphersuite_default instead."
+
+Network/Connection.hs:206:39: warning: [-Wname-shadowing]
+    This binding for ‘serv’ shadows the existing binding
+      bound at Network/Connection.hs:205:17
+Creating package registration file:
+/tmp/pkgConf-connection-0.21807851471675575223.8
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/connection-0.2.8-CZp8ozGDqwU7No2kSLDMgQ
+Registering connection-0.2.8...
+cabal: Leaving directory '/tmp/cabal-tmp-7/connection-0.2.8'

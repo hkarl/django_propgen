@@ -1,0 +1,20 @@
+cabal: Entering directory '/tmp/cabal-tmp-15/data-accessor-0.2.2.7'
+Configuring data-accessor-0.2.2.7...
+Building data-accessor-0.2.2.7...
+Preprocessing library data-accessor-0.2.2.7...
+[ 1 of 10] Compiling Data.Accessor.Private ( src-4/Data/Accessor/Private.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Private.o )
+[ 2 of 10] Compiling Data.Accessor.Basic ( src/Data/Accessor/Basic.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Basic.o )
+[ 3 of 10] Compiling Data.Accessor.BinaryRead ( src/Data/Accessor/BinaryRead.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/BinaryRead.o )
+[ 4 of 10] Compiling Data.Accessor.Container ( src/Data/Accessor/Container.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Container.o )
+[ 5 of 10] Compiling Data.Accessor.MonadStatePrivate ( src/Data/Accessor/MonadStatePrivate.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/MonadStatePrivate.o )
+[ 6 of 10] Compiling Data.Accessor.MonadState ( src/Data/Accessor/MonadState.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/MonadState.o )
+[ 7 of 10] Compiling Data.Accessor.Show ( src/Data/Accessor/Show.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Show.o )
+[ 8 of 10] Compiling Data.Accessor.Tuple ( src/Data/Accessor/Tuple.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Tuple.o )
+[ 9 of 10] Compiling Data.Accessor.Example ( src/Data/Accessor/Example.hs, dist/dist-sandbox-6923a179/build/Data/Accessor/Example.o )
+[10 of 10] Compiling Data.Accessor    ( src/Data/Accessor.hs, dist/dist-sandbox-6923a179/build/Data/Accessor.o )
+Creating package registration file:
+/tmp/pkgConf-data-accessor-0.2.23521186061782436840.7
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/data-accessor-0.2.2.7-EIyoGWJa6mi6QAVcUY9dHP
+Registering data-accessor-0.2.2.7...
+cabal: Leaving directory '/tmp/cabal-tmp-15/data-accessor-0.2.2.7'

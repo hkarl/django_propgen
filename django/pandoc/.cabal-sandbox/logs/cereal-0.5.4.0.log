@@ -1,0 +1,14 @@
+cabal: Entering directory '/tmp/cabal-tmp-12/cereal-0.5.4.0'
+Configuring cereal-0.5.4.0...
+Building cereal-0.5.4.0...
+Preprocessing library cereal-0.5.4.0...
+[1 of 4] Compiling Data.Serialize.Put ( src/Data/Serialize/Put.hs, dist/dist-sandbox-6923a179/build/Data/Serialize/Put.o )
+[2 of 4] Compiling Data.Serialize.Get ( src/Data/Serialize/Get.hs, dist/dist-sandbox-6923a179/build/Data/Serialize/Get.o )
+[3 of 4] Compiling Data.Serialize.IEEE754 ( src/Data/Serialize/IEEE754.hs, dist/dist-sandbox-6923a179/build/Data/Serialize/IEEE754.o )
+[4 of 4] Compiling Data.Serialize   ( src/Data/Serialize.hs, dist/dist-sandbox-6923a179/build/Data/Serialize.o )
+Creating package registration file:
+/tmp/pkgConf-cereal-0.5.414321146131067854538.0
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/cereal-0.5.4.0-5GV8T0cZtQC43fdhZURRFq
+Registering cereal-0.5.4.0...
+cabal: Leaving directory '/tmp/cabal-tmp-12/cereal-0.5.4.0'

@@ -1,0 +1,9 @@
+{
+  "rulesDirectory": [
+    "../../node_modules/codelyzer"
+  ],
+  "rules": {
+    "directive-selector-prefix": [true, "propgen-shared"],
+    "component-selector-prefix": [true, "propgen-shared"]
+  }
+}

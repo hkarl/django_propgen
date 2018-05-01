@@ -1,0 +1,28 @@
+cabal: Entering directory '/tmp/cabal-tmp-13/streaming-commons-0.1.18'
+Configuring streaming-commons-0.1.18...
+Building streaming-commons-0.1.18...
+Preprocessing library streaming-commons-0.1.18...
+[ 1 of 18] Compiling Data.Text.Internal.Unsafe.Shift ( Data/Text/Internal/Unsafe/Shift.hs, dist/dist-sandbox-6923a179/build/Data/Text/Internal/Unsafe/Shift.o )
+[ 2 of 18] Compiling Data.Text.Internal.Unsafe.Char ( Data/Text/Internal/Unsafe/Char.hs, dist/dist-sandbox-6923a179/build/Data/Text/Internal/Unsafe/Char.o )
+[ 3 of 18] Compiling Data.Text.Internal.Encoding.Utf8 ( Data/Text/Internal/Encoding/Utf8.hs, dist/dist-sandbox-6923a179/build/Data/Text/Internal/Encoding/Utf8.o )
+[ 4 of 18] Compiling Data.Text.Internal.Encoding.Utf32 ( Data/Text/Internal/Encoding/Utf32.hs, dist/dist-sandbox-6923a179/build/Data/Text/Internal/Encoding/Utf32.o )
+[ 5 of 18] Compiling Data.Text.Internal.Encoding.Utf16 ( Data/Text/Internal/Encoding/Utf16.hs, dist/dist-sandbox-6923a179/build/Data/Text/Internal/Encoding/Utf16.o )
+[ 6 of 18] Compiling Data.Streaming.Zlib.Lowlevel ( Data/Streaming/Zlib/Lowlevel.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Zlib/Lowlevel.o )
+[ 7 of 18] Compiling Data.Streaming.Zlib ( Data/Streaming/Zlib.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Zlib.o )
+[ 8 of 18] Compiling Data.Streaming.Text ( Data/Streaming/Text.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Text.o )
+[ 9 of 18] Compiling Data.Streaming.Process.Internal ( Data/Streaming/Process/Internal.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Process/Internal.o )
+[10 of 18] Compiling Data.Streaming.Process ( Data/Streaming/Process.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Process.o )
+[11 of 18] Compiling Data.Streaming.Network.Internal ( Data/Streaming/Network/Internal.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Network/Internal.o )
+[12 of 18] Compiling Data.Streaming.Network ( Data/Streaming/Network.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Network.o )
+[13 of 18] Compiling Data.Streaming.Filesystem ( Data/Streaming/Filesystem.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Filesystem.o )
+[14 of 18] Compiling Data.Streaming.FileRead ( Data/Streaming/FileRead.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/FileRead.o )
+[15 of 18] Compiling Data.Streaming.ByteString.Builder.Buffer ( Data/Streaming/ByteString/Builder/Buffer.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/ByteString/Builder/Buffer.o )
+[16 of 18] Compiling Data.Streaming.ByteString.Builder ( Data/Streaming/ByteString/Builder.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/ByteString/Builder.o )
+[17 of 18] Compiling Data.Streaming.ByteString.Builder.Class ( Data/Streaming/ByteString/Builder/Class.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/ByteString/Builder/Class.o )
+[18 of 18] Compiling Data.Streaming.Blaze ( Data/Streaming/Blaze.hs, dist/dist-sandbox-6923a179/build/Data/Streaming/Blaze.o )
+Creating package registration file:
+/tmp/pkgConf-streaming-commons-0.11615935710639806732.18
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/streaming-commons-0.1.18-35pTHhPA25qF0bHii1JTi5
+Registering streaming-commons-0.1.18...
+cabal: Leaving directory '/tmp/cabal-tmp-13/streaming-commons-0.1.18'

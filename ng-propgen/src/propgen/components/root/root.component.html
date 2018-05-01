@@ -1,0 +1,9 @@
+<mat-toolbar>
+  <a mat-button routerLink="/">
+    Back to menu
+  </a>
+  <a mat-button href="{{ backend }}/admin/">Admin</a>
+  <mat-menu #proposalElements="matMenu">
+    <button mat-menu-item>Textblocks</button>
+  </mat-menu>
+</mat-toolbar>

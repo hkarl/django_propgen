@@ -1,0 +1,42 @@
+cabal: Entering directory '/tmp/cabal-tmp-38/utility-ht-0.0.14'
+Configuring utility-ht-0.0.14...
+Building utility-ht-0.0.14...
+Preprocessing library utility-ht-0.0.14...
+[ 1 of 32] Compiling Text.Show.HT     ( src/Text/Show/HT.hs, dist/dist-sandbox-6923a179/build/Text/Show/HT.o )
+[ 2 of 32] Compiling Text.Read.HT     ( src/Text/Read/HT.hs, dist/dist-sandbox-6923a179/build/Text/Read/HT.o )
+[ 3 of 32] Compiling Data.Tuple.Strict ( src/Data/Tuple/Strict.hs, dist/dist-sandbox-6923a179/build/Data/Tuple/Strict.o )
+[ 4 of 32] Compiling Data.Tuple.Lazy  ( src/Data/Tuple/Lazy.hs, dist/dist-sandbox-6923a179/build/Data/Tuple/Lazy.o )
+[ 5 of 32] Compiling Data.Tuple.HT    ( src/Data/Tuple/HT.hs, dist/dist-sandbox-6923a179/build/Data/Tuple/HT.o )
+[ 6 of 32] Compiling Data.Strictness.HT ( src/Data/Strictness/HT.hs, dist/dist-sandbox-6923a179/build/Data/Strictness/HT.o )
+[ 7 of 32] Compiling Data.Monoid.HT   ( src/Data/Monoid/HT.hs, dist/dist-sandbox-6923a179/build/Data/Monoid/HT.o )
+[ 8 of 32] Compiling Data.Maybe.HT    ( src/Data/Maybe/HT.hs, dist/dist-sandbox-6923a179/build/Data/Maybe/HT.o )
+[ 9 of 32] Compiling Data.List.Reverse.StrictSpine ( src/Data/List/Reverse/StrictSpine.hs, dist/dist-sandbox-6923a179/build/Data/List/Reverse/StrictSpine.o )
+[10 of 32] Compiling Data.String.HT   ( src/Data/String/HT.hs, dist/dist-sandbox-6923a179/build/Data/String/HT.o )
+[11 of 32] Compiling Data.List.Reverse.StrictElement ( src/Data/List/Reverse/StrictElement.hs, dist/dist-sandbox-6923a179/build/Data/List/Reverse/StrictElement.o )
+[12 of 32] Compiling Data.Ix.Enum     ( src/Data/Ix/Enum.hs, dist/dist-sandbox-6923a179/build/Data/Ix/Enum.o )
+[13 of 32] Compiling Data.Function.HT.Private ( src/Data/Function/HT/Private.hs, dist/dist-sandbox-6923a179/build/Data/Function/HT/Private.o )
+[14 of 32] Compiling Data.Function.HT ( src/Data/Function/HT.hs, dist/dist-sandbox-6923a179/build/Data/Function/HT.o )
+[15 of 32] Compiling Data.List.Key.Private ( src/Data/List/Key/Private.hs, dist/dist-sandbox-6923a179/build/Data/List/Key/Private.o )
+[16 of 32] Compiling Data.List.Key    ( src/Data/List/Key.hs, dist/dist-sandbox-6923a179/build/Data/List/Key.o )
+[17 of 32] Compiling Data.Ord.HT      ( src/Data/Ord/HT.hs, dist/dist-sandbox-6923a179/build/Data/Ord/HT.o )
+[18 of 32] Compiling Data.Eq.HT       ( src/Data/Eq/HT.hs, dist/dist-sandbox-6923a179/build/Data/Eq/HT.o )
+[19 of 32] Compiling Data.Either.HT   ( src/Data/Either/HT.hs, dist/dist-sandbox-6923a179/build/Data/Either/HT.o )
+[20 of 32] Compiling Data.Bool.HT.Private ( src/Data/Bool/HT/Private.hs, dist/dist-sandbox-6923a179/build/Data/Bool/HT/Private.o )
+[21 of 32] Compiling Data.Bool.HT     ( src/Data/Bool/HT.hs, dist/dist-sandbox-6923a179/build/Data/Bool/HT.o )
+[22 of 32] Compiling Data.Bits.HT     ( src/Data/Bits/HT.hs, dist/dist-sandbox-6923a179/build/Data/Bits/HT.o )
+[23 of 32] Compiling Control.Monad.HT ( src/Control/Monad/HT.hs, dist/dist-sandbox-6923a179/build/Control/Monad/HT.o )
+[24 of 32] Compiling Control.Functor.HT ( src/Control/Functor/HT.hs, dist/dist-sandbox-6923a179/build/Control/Functor/HT.o )
+[25 of 32] Compiling Data.List.Match.Private ( src/Data/List/Match/Private.hs, dist/dist-sandbox-6923a179/build/Data/List/Match/Private.o )
+[26 of 32] Compiling Data.List.HT.Private ( src/Data/List/HT/Private.hs, dist/dist-sandbox-6923a179/build/Data/List/HT/Private.o )
+[27 of 32] Compiling Data.List.HT     ( src/Data/List/HT.hs, dist/dist-sandbox-6923a179/build/Data/List/HT.o )
+[28 of 32] Compiling Data.Record.HT.Private ( src/Data/Record/HT/Private.hs, dist/dist-sandbox-6923a179/build/Data/Record/HT/Private.o )
+[29 of 32] Compiling Data.Record.HT   ( src/Data/Record/HT.hs, dist/dist-sandbox-6923a179/build/Data/Record/HT.o )
+[30 of 32] Compiling Data.Tuple.Example ( src/Data/Tuple/Example.hs, dist/dist-sandbox-6923a179/build/Data/Tuple/Example.o )
+[31 of 32] Compiling Data.List.Match  ( src/Data/List/Match.hs, dist/dist-sandbox-6923a179/build/Data/List/Match.o )
+[32 of 32] Compiling Control.Applicative.HT ( src/Control/Applicative/HT.hs, dist/dist-sandbox-6923a179/build/Control/Applicative/HT.o )
+Creating package registration file:
+/tmp/pkgConf-utility-ht-0.0105575579964445884.14
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/utility-ht-0.0.14-24xG04xbcZ3HPMjtp2taYT
+Registering utility-ht-0.0.14...
+cabal: Leaving directory '/tmp/cabal-tmp-38/utility-ht-0.0.14'

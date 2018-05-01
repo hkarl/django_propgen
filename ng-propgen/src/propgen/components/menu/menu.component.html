@@ -1,0 +1,45 @@
+<div [class.loader-hidden]="!loading" class="loader-overlay">
+  <div class="flex-container">
+    <mat-progress-spinner mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
+  </div>
+</div>
+<propgen-root></propgen-root>
+<h1 class="mat-headline">Proposal editing made easy</h1>
+<mat-tab-group>
+  <mat-tab label="Proposal elements">
+    <mat-list>
+      <mat-list-item><a routerLink="/textblocks" mat-button>Generic textblocks</a></mat-list-item>
+      <mat-list-item><a routerLink="/workpackages" mat-button>Workpackages</a></mat-list-item>
+      <mat-list-item><a routerLink="/tasks" mat-button>Tasks</a></mat-list-item>
+      <mat-list-item><a routerLink="/deliverables" mat-button>Deliverables</a></mat-list-item>
+      <mat-list-item class="list-item-indent-1"><a routerLink="/producabletypes" mat-button>Types of deliverables</a></mat-list-item>
+      <mat-list-item class="list-item-indent-1"><a routerLink="/disseminationtypes" mat-button>Dissemination options for deliverables</a></mat-list-item>
+      <mat-list-item><a routerLink="/milestones" mat-button>Milestones</a></mat-list-item>
+      <mat-list-item><a routerLink="/partners" mat-button>Partner descriptions</a></mat-list-item>
+      <mat-list-item><a routerLink="/partnertypes" mat-button>Partner types</a></mat-list-item>
+    </mat-list>
+  </mat-tab>
+  <mat-tab label="Budget allocation">
+    <mat-list>
+      <mat-list-item><a routerLink="/deliverablepartnertaskpms" mat-button>Partner contributions to deliverables (per task)</a></mat-list-item>
+      <mat-list-item><a routerLink="/milestonepartnertaskpms" mat-button>Partner contributions to milestones (per task)</a></mat-list-item>
+      <mat-list-item><a routerLink="/taskpartnerpms" mat-button>Partner contributions to tasks (in general, not tied to milestones or deliverables)</a></mat-list-item>
+    </mat-list>
+  </mat-tab>
+  <mat-tab label="Produce files &amp; output">
+    <mat-list>
+      <mat-list-item><button mat-button (click)="instantiate()">Instantiate all templates</button></mat-list-item>
+      <mat-list-item><button mat-button disabled>Pick individual template to run</button></mat-list-item>
+      <mat-list-item><button mat-button (click)="createLatex()">Produce LaTeX files from template</button></mat-list-item>
+      <mat-list-item><button mat-button (click)="runLatex()">Produce all output files (PDF)</button></mat-list-item>
+      <mat-list-item><button mat-button disabled>Pick a single output file to produce</button></mat-list-item>
+    </mat-list>
+  </mat-tab>
+  <mat-tab label="Basic data">
+    <mat-list>
+      <mat-list-item><a routerLink="/project" mat-button>Project data</a></mat-list-item>
+      <mat-list-item><a routerLink="/templates" mat-button>Templates</a></mat-list-item>
+      <mat-list-item><a routerLink="/settings" mat-button>Settings</a></mat-list-item>
+    </mat-list>
+  </mat-tab>
+</mat-tab-group>

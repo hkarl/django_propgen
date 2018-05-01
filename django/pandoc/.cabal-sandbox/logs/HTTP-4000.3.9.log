@@ -1,0 +1,76 @@
+cabal: Entering directory '/tmp/cabal-tmp-12/HTTP-4000.3.9'
+Configuring HTTP-4000.3.9...
+Building HTTP-4000.3.9...
+Preprocessing library HTTP-4000.3.9...
+[ 1 of 18] Compiling Paths_HTTP       ( dist/dist-sandbox-6923a179/build/autogen/Paths_HTTP.hs, dist/dist-sandbox-6923a179/build/Paths_HTTP.o )
+[ 2 of 18] Compiling Network.Stream   ( Network/Stream.hs, dist/dist-sandbox-6923a179/build/Network/Stream.o )
+
+Network/Stream.hs:35:1: warning: [-Wdeprecations]
+    Module ‘Control.Monad.Error’ is deprecated:
+      Use Control.Monad.Except instead
+
+Network/Stream.hs:44:10: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘Error’
+    (imported from Control.Monad.Error, but defined in transformers-0.5.2.0:Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Network/Stream.hs:44:10: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘Error’
+    (imported from Control.Monad.Error, but defined in transformers-0.5.2.0:Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Network/Stream.hs:45:11: warning: [-Wdeprecations]
+    In the use of ‘strMsg’
+    (imported from Control.Monad.Error, but defined in transformers-0.5.2.0:Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Network/Stream.hs:52:24: warning: [-Wdeprecations]
+    In the use of ‘strMsg’
+    (imported from Control.Monad.Error, but defined in transformers-0.5.2.0:Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+[ 3 of 18] Compiling Network.HTTP.Utils ( Network/HTTP/Utils.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Utils.o )
+[ 4 of 18] Compiling Network.HTTP.MD5Aux ( Network/HTTP/MD5Aux.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/MD5Aux.o )
+[ 5 of 18] Compiling Network.HTTP.Headers ( Network/HTTP/Headers.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Headers.o )
+[ 6 of 18] Compiling Network.HTTP.Cookie ( Network/HTTP/Cookie.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Cookie.o )
+[ 7 of 18] Compiling Network.HTTP.Base64 ( Network/HTTP/Base64.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Base64.o )
+[ 8 of 18] Compiling Network.BufferType ( Network/BufferType.hs, dist/dist-sandbox-6923a179/build/Network/BufferType.o )
+[ 9 of 18] Compiling Network.HTTP.Base ( Network/HTTP/Base.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Base.o )
+
+Network/HTTP/Base.hs:110:1: warning: [-Wdeprecations]
+    Module ‘Control.Monad.Error’ is deprecated:
+      Use Control.Monad.Except instead
+[10 of 18] Compiling Network.HTTP.Auth ( Network/HTTP/Auth.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Auth.o )
+[11 of 18] Compiling Network.HTTP.Proxy ( Network/HTTP/Proxy.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Proxy.o )
+[12 of 18] Compiling Network.StreamSocket ( Network/StreamSocket.hs, dist/dist-sandbox-6923a179/build/Network/StreamSocket.o )
+
+Network/StreamSocket.hs:53:21: warning: [-Wdeprecations]
+    In the use of ‘recv’ (imported from Network.Socket):
+    "Use recv defined in "Network.Socket.ByteString""
+
+Network/StreamSocket.hs:62:10: warning: [-Wdeprecations]
+    In the use of ‘sClose’ (imported from Network.Socket):
+    Deprecated: "use 'close'"
+
+Network/StreamSocket.hs:92:12: warning: [-Wdeprecations]
+    In the use of ‘send’ (imported from Network.Socket):
+    "Use send defined in "Network.Socket.ByteString""
+[13 of 18] Compiling Network.TCP      ( Network/TCP.hs, dist/dist-sandbox-6923a179/build/Network/TCP.o )
+
+Network/TCP.hs:245:32: warning: [-Wdeprecations]
+    In the use of ‘sClose’ (imported from Network.Socket):
+    Deprecated: "use 'close'"
+
+Network/TCP.hs:298:5: warning: [-Wdeprecations]
+    In the use of ‘sClose’ (imported from Network.Socket):
+    Deprecated: "use 'close'"
+[14 of 18] Compiling Network.StreamDebugger ( Network/StreamDebugger.hs, dist/dist-sandbox-6923a179/build/Network/StreamDebugger.o )
+[15 of 18] Compiling Network.HTTP.HandleStream ( Network/HTTP/HandleStream.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/HandleStream.o )
+[16 of 18] Compiling Network.HTTP     ( Network/HTTP.hs, dist/dist-sandbox-6923a179/build/Network/HTTP.o )
+[17 of 18] Compiling Network.HTTP.Stream ( Network/HTTP/Stream.hs, dist/dist-sandbox-6923a179/build/Network/HTTP/Stream.o )
+[18 of 18] Compiling Network.Browser  ( Network/Browser.hs, dist/dist-sandbox-6923a179/build/Network/Browser.o )
+Creating package registration file:
+/tmp/pkgConf-HTTP-4000.3181271232525829204.9
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/HTTP-4000.3.9-C8E1H6XtvXaJOEza8QbuE3
+Registering HTTP-4000.3.9...
+cabal: Leaving directory '/tmp/cabal-tmp-12/HTTP-4000.3.9'

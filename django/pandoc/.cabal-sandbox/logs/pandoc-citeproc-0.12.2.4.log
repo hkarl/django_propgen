@@ -1,0 +1,42 @@
+cabal: Entering directory '/tmp/cabal-tmp-7/pandoc-citeproc-0.12.2.4'
+[1 of 1] Compiling Main             ( /tmp/cabal-tmp-7/pandoc-citeproc-0.12.2.4/dist/dist-sandbox-6923a179/setup/setup.hs, /tmp/cabal-tmp-7/pandoc-citeproc-0.12.2.4/dist/dist-sandbox-6923a179/setup/Main.o )
+Linking /tmp/cabal-tmp-7/pandoc-citeproc-0.12.2.4/dist/dist-sandbox-6923a179/setup/setup ...
+Configuring pandoc-citeproc-0.12.2.4...
+Building pandoc-citeproc-0.12.2.4...
+Preprocessing library pandoc-citeproc-0.12.2.4...
+[ 1 of 23] Compiling Prelude          ( prelude/Prelude.hs, dist/dist-sandbox-6923a179/build/Prelude.o )
+[ 2 of 23] Compiling Text.CSL.Compat.Pandoc ( compat/Text/CSL/Compat/Pandoc.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Compat/Pandoc.o )
+[ 3 of 23] Compiling Text.CSL.Exception ( src/Text/CSL/Exception.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Exception.o )
+[ 4 of 23] Compiling Text.CSL.Util    ( src/Text/CSL/Util.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Util.o )
+[ 5 of 23] Compiling Text.CSL.Style   ( src/Text/CSL/Style.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Style.o )
+[ 6 of 23] Compiling Text.CSL.Output.Pandoc ( src/Text/CSL/Output/Pandoc.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Output/Pandoc.o )
+[ 7 of 23] Compiling Text.CSL.Eval.Output ( src/Text/CSL/Eval/Output.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Eval/Output.o )
+[ 8 of 23] Compiling Text.CSL.Output.Plain ( src/Text/CSL/Output/Plain.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Output/Plain.o )
+[ 9 of 23] Compiling Text.CSL.Reference ( src/Text/CSL/Reference.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Reference.o )
+[10 of 23] Compiling Text.CSL.Eval.Common ( src/Text/CSL/Eval/Common.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Eval/Common.o )
+[11 of 23] Compiling Text.CSL.Eval.Names ( src/Text/CSL/Eval/Names.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Eval/Names.o )
+[12 of 23] Compiling Text.CSL.Eval.Date ( src/Text/CSL/Eval/Date.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Eval/Date.o )
+[13 of 23] Compiling Text.CSL.Eval    ( src/Text/CSL/Eval.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Eval.o )
+[14 of 23] Compiling Text.CSL.Proc.Disamb ( src/Text/CSL/Proc/Disamb.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Proc/Disamb.o )
+[15 of 23] Compiling Text.CSL.Proc.Collapse ( src/Text/CSL/Proc/Collapse.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Proc/Collapse.o )
+[16 of 23] Compiling Text.CSL.Proc    ( src/Text/CSL/Proc.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Proc.o )
+[17 of 23] Compiling Paths_pandoc_citeproc ( dist/dist-sandbox-6923a179/build/autogen/Paths_pandoc_citeproc.hs, dist/dist-sandbox-6923a179/build/Paths_pandoc_citeproc.o )
+[18 of 23] Compiling Text.CSL.Data    ( src/Text/CSL/Data.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Data.o )
+[19 of 23] Compiling Text.CSL.Parser  ( src/Text/CSL/Parser.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Parser.o )
+[20 of 23] Compiling Text.CSL.Input.Bibtex ( src/Text/CSL/Input/Bibtex.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Input/Bibtex.o )
+[21 of 23] Compiling Text.CSL.Input.Bibutils ( src/Text/CSL/Input/Bibutils.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Input/Bibutils.o )
+[22 of 23] Compiling Text.CSL         ( src/Text/CSL.hs, dist/dist-sandbox-6923a179/build/Text/CSL.o )
+[23 of 23] Compiling Text.CSL.Pandoc  ( src/Text/CSL/Pandoc.hs, dist/dist-sandbox-6923a179/build/Text/CSL/Pandoc.o )
+Preprocessing executable 'pandoc-citeproc' for pandoc-citeproc-0.12.2.4...
+[1 of 3] Compiling Prelude          ( prelude/Prelude.hs, dist/dist-sandbox-6923a179/build/pandoc-citeproc/pandoc-citeproc-tmp/Prelude.o )
+[2 of 3] Compiling Paths_pandoc_citeproc ( dist/dist-sandbox-6923a179/build/autogen/Paths_pandoc_citeproc.hs, dist/dist-sandbox-6923a179/build/pandoc-citeproc/pandoc-citeproc-tmp/Paths_pandoc_citeproc.o )
+[3 of 3] Compiling Main             ( pandoc-citeproc.hs, dist/dist-sandbox-6923a179/build/pandoc-citeproc/pandoc-citeproc-tmp/Main.o )
+Linking dist/dist-sandbox-6923a179/build/pandoc-citeproc/pandoc-citeproc ...
+Creating package registration file:
+/tmp/pkgConf-pandoc-citeproc-0.12.29398195822001100545.4
+Installing library in
+/pandoc/.cabal-sandbox/lib/x86_64-linux-ghc-8.0.2/pandoc-citeproc-0.12.2.4-7l3PeD2tlcNIBq8mj8soCF
+Installing executable(s) in /pandoc/.cabal-sandbox/bin
+Copying man page to /pandoc/.cabal-sandbox/share/man/man1
+Registering pandoc-citeproc-0.12.2.4...
+cabal: Leaving directory '/tmp/cabal-tmp-7/pandoc-citeproc-0.12.2.4'
