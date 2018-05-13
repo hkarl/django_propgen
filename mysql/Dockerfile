@@ -1,2 +1,2 @@
-FROM mysql
+FROM mysql:5.7
 
