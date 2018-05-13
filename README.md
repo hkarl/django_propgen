@@ -317,7 +317,7 @@ In production scenarios, one might want to create a virtual host in an external 
 
 ## Authors
 * **Holger Karl** - *Concept, first working version, project leader* - (https://github.com/hkarl)
-* **Christian** - *Angular Front End* - (https://github.com/lordjimbeam)
+* **Christian Stroehmeier** - *Angular Front End* - (https://github.com/lordjimbeam)
 * **Marco Bonola** - *Docker environment* - (https://github/marcobonola)
 
 ## License
